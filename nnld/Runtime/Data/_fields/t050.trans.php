@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'uniqueid', 2 => 'tousername', 3 => 'fromusername', 4 => 'pointamount', 5 => 'datasource', 6 => 'ip', 7 => 'status', 8 => 'type', 9 => 'pdt', '_autoinc' => true, '_pk' => 'id', ); ?>

@@ -1,0 +1,535 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/Ajax/ThinkAjax-1.js" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+<script language="javascript">
+var jq=jQuery.noConflict()
+function yhServer(Ful,lx){	
+
+	var str = $F(Ful).replace(/^\s+|\s+$/g,"");
+	var re = /[^(\w){6,20}$]/g;
+	str = str.replace(re,"");
+	var tuijian = document.getElementById("RID").value;
+
+	document.getElementById(Ful).value = str;
+	if (str != ""){
+		if(lx==0){ThinkAjax.send('__APP__/Fck/check_shopid/','ajax=1&shopid='+str,'',Ful+'1');}
+		if(lx==1){ThinkAjax.send('__APP__/Fck/check_reid/','ajax=1&reid='+str,'',Ful+'1');}
+		if(lx==2){ThinkAjax.send('__APP__/Fck/check_fid/','ajax=1&fid='+str+'&rid='+tuijian,'',Ful+'1');}
+		if(lx==3){ThinkAjax.send('__APP__/Fck/check_userid/','ajax=1&userid='+str,'',Ful+'1');}
+	}
+}
+function guolv(Ful){
+	
+	var str = $F(Ful).replace(/^\s+|\s+$/g,"");
+	var re = /[^(\w){6,20}$]/g;
+	str = str.replace(re,"");
+	
+	document.getElementById(Ful).value = str;
+}
+function ajaxagent(){
+	var divp = document.getElementById("showagent");
+	if(divp.style.display=="none"){
+		var xmlHttp;
+		try{
+			//FF Opear 8.0+ Safair
+			xmlHttp=new XMLHttpRequest();
+		}
+		catch(e){
+			try{
+				xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				alert("您的浏览器不支持AJAX");
+				return false;    
+			}
+		}
+		xmlHttp.onreadystatechange=function(){
+			if(xmlHttp.readyState==4){
+				var valuet = xmlHttp.responseText;
+				document.getElementById("agentall").innerHTML=valuet;
+				window.parent.turnHeight('main');
+			}
+		}
+		var url="__URL__/find_agent/";
+		url+="/sid/"+Math.random();
+		xmlHttp.open("GET",url,true);
+		xmlHttp.send(null);
+		divp.style.display="block";
+	}else{
+		divp.style.display="none";
+	}
+}
+</script>
+<style>
+#agentall{ width:100%;}
+#agentall li{ width:230px; float:left; padding:5px; line-height:22px;}
+</style>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>注册会员 </h1></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tab1">
+  <tr>
+    <td>
+    <form method='post' id="form1" name="form1" action="__URL__/usersConfirm"/>
+    <table width="100%" border="0" cellpadding="3" cellspacing="0" class="tab4">
+
+
+
+   <!--   <tr>
+        <td width="20%" align="right"><span class="zc_hong">*</span> 所属报单中心：</td>
+        <td width="27%"><input size="30" name="shopid" type="text" id="shopid" value="{$myid}" class="ipt" onBlur="javascript:yhServer(this.name,'0')" /></td>
+        <td width="53%"><div id="shopid1" class="info"><div id="0" class="focus_r"><div class="msg_tip">请填写所属报单中心编号</div></div></div></td>
+      </tr>  -->
+
+
+
+      <tr id="showagent" style="display:none">
+        <td align="left" colspan="3"><div id="agentall"></div></td>
+      </tr>
+      <tr>
+        <td width="20%" align="right"><span class="zc_hong">*</span> 推荐人：</td>
+        <td width="27%"><input size="30" name="RID" id="RID" type="text" class="ipt" onKeyUp="guolv(this.name)" onFocus="notice('1','')" onBlur="javascript:yhServer(this.name,'1');notice('1','none')" value="{$ben}"/></td>
+        <td width="53%"><div id="RID1" class="info"><div id="1" class="focus_r" style="display:none;"><div class="msg_tip">请填写推荐人。</div></div></div> </td>
+      </tr>
+
+
+  <!--    <tr >
+        <td align="right"><span class="zc_hong">*</span> 安置人：</td>
+        <td><input size="30" name="FID" id="FID" type="text"  value="{$ben}"  class="ipt" onKeyUp="guolv(this.name)" onFocus="notice('2','')" onBlur="javascript:yhServer(this.name,'2');notice('2','none')" /></td>
+        <td><div id="FID1" class="info"><div id="2" class="focus_r" style="display:none;"><div class="msg_tip">请填写安置人。</div></div></div></td>
+      </tr>  -->
+
+
+
+      <empty name="User_namex">
+      <else />
+      <tr>
+        <td align="right"><span class="zc_hong">*</span>会员编号：</td>
+        <td>
+        <input size="30" name="UserID" id="UserID" type="text"  value="{$flist['UserID']}" class="ipt" onKeyUp="guolv(this.name)" onFocus="notice('3','')" onBlur="javascript:yhServer(this.name,'3');notice('3','none')"/>
+        </td>
+        <td><div id="UserID1" class="info"><div id="3" class="focus_r" style="display:none;"><div class="msg_tip">此会员编号用于登录系统使用。</div></div></div></td>
+      </tr>
+      </empty>
+      <empty name="Nick_namex">
+      <else />
+      <tr style="display:none">
+        <td align="right"><span class="zc_hong">*</span> {$Nick_namex}：</td>
+        <td><input size="30" name="nickname" type="text" class="ipt" id="nickname" onFocus="notice('14','')"  onblur="notice('14','none')" onKeyUp="guolv(this.name);avascript:Null_Full(this.name)"/></td>
+        <td><div id="nickname1" class="info"><div id="14" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的昵称。</div></div></div></td>
+      </tr>
+      </empty>
+
+ <!--
+      <tr style="">
+        <td align="right">所在区域：</td>
+        <td><select name="TPL" id="TPL" style="width: 190px;" >
+            <option value="0" {$TPL[0]}> 左区 </option>
+            <option value="1" {$TPL[1]}> 右区 </option>
+
+
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="height:5px;"><hr></td>
+      </tr>
+   -->
+
+
+
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> 一级密码：</td>
+        <td><input size="30" name="Password" type="password" class="ipt"  id="Password" onFocus="notice('4','')"  onblur="javascript:yhPass(this.name);notice('4','none');" value="111111"/></td>
+        <td><div id="Password1" class="info"><div id="4" class="focus_r" style="display:none;"><div class="msg_tip">请使用字母加数字或符号的组合密码。</div></div></div></td>
+      </tr>
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> 确认一级密码：</td>
+        <td><input size="30" name="rePassword" type="password" class="ipt"  id="rePassword" onFocus="notice('5','')"  onblur="javascript:yhrePass(this.name,'Password');notice('5','none')" value="111111"/></td>
+        <td><div id="rePassword1" class="info"><div id="5" class="focus_r" style="display:none;"><div class="msg_tip">确认一级密码。</div></div></div></td>
+      </tr>
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> 二级密码：</td>
+        <td><input size="30" name="PassOpen" type="password" class="ipt"  id="PassOpen" onFocus="notice('6','')"  onblur="javascript:yhPass(this.name);notice('6','none')" value="222222"/></td>
+        <td><div id="PassOpen1" class="info"><div id="6" class="focus_r" style="display:none;"><div class="msg_tip">请使用字母加数字或符号的组合密码。</div></div></div></td>
+      </tr>
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> 确认二级密码：</td>
+        <td><input size="30" name="rePassOpen" type="password" class="ipt"  id="rePassOpen" onFocus="notice('7','')"  onblur="javascript:yhrePass(this.name,'PassOpen');notice('7','none')" value="222222"/></td>
+        <td><div id="rePassOpen1" class="info"><div id="7" class="focus_r" style="display:none;"><div class="msg_tip">确认二级密码。</div></div></div></td>
+      </tr>
+      <tr style="display:none">
+        <td align="right"><span class="zc_hong">*</span> 密保问题：</td>
+        <td>
+        <select name="wenti">
+          <volist name='wentilist' id='voo'>
+              <option value="{$voo}" <eq name="key" value="0">selected</eq> >{$voo}</option>
+          </volist>
+        </select></td>
+        <td></td>
+      </tr>
+      <tr style="display:none">
+        <td align="right"><span class="zc_hong">*</span> 密保答案：</td>
+        <td><input size="30" name="wenti_dan" type="text" class="ipt"  id="wenti_dan" onFocus="notice('wenti_dan1','')"  onblur="notice('wenti_dan1','none')" value="xx" maxlength="255"/></td>
+        <td><div id="wenti_dan1" class="info" style="display:none;"><div class="focus_r"><div class="msg_tip">输入密保答案。</div></div></div></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="height:5px;"><hr></td>
+      </tr>
+
+
+        <tr>
+            <td align="right"><span class="zc_hong">*</span> 开户姓名：</td>
+            <td><input size="30" name="UserName" type="text" class="ipt"  id="UserName" onFocus="notice('9','')"  onblur="notice('9','none')" onKeyUp="javascript:Null_Full(this.name)" value="123" maxlength="10" /></td>
+            <td><div id="UserName1" class="info"><div id="9" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的姓名。</div></div></div></td>
+        </tr>
+
+        <tr>
+            <td align="right"><span class="zc_hong">*</span>身份证号：</td>
+            <td><input size="30" name="UserCode" type="text" class="ipt" id="UserCode" onFocus="notice('11','')"  onblur="notice('11','none')" onKeyUp="javascript:Null_Full(this.name)" value="452124199306222758" maxlength="18" /></td>
+
+            <td><div id="UserCode1" class="info"><div id="11" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的身份证号。</div></div></div></td>
+        </tr>
+
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> 开户银行：</td>
+        <td><select name="BankName" onChange="javasctip:bank_us(this.value);" style="width: 190px;" >
+          <option value="中国工商银行">中国工商银行</option>
+          <option value="中国建设银行">中国建设银行</option>
+          <option value="中国交通银行">中国交通银行</option>
+          <option value="中国农业银行">中国农业银行</option>
+          <option value="中国招商银行">中国招商银行</option>
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="right"><span class="zc_hong">*</span> <span id="bank_id"><eq name="bank[0]" value="财付通">财付通号<else />银行卡号</eq></span>：</td>
+        <td><input size="30" name="BankCard" type="text" class="ipt" id="BankCard" onFocus="notice('8','')"  onblur="notice('8','none')" onKeyUp="javascript:Null_Int(this.name)" value="123" maxlength="19" /></td>
+        <td><div id="BankCard1" class="info"><div id="8" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的号码。</div></div></div></td>
+      </tr>
+
+
+
+
+<!--
+      <tr>
+        <td align="right">开户省份：</td>
+        <td><select name="BankProvince" id="s1" style="width: 190px;"  >
+            <option></option>
+          </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="right">开户城市：</td>
+        <td><select name="BankCity" id="s2" style="width: 190px;" >
+            <option></option>
+          </select></td>
+        <td>&nbsp;</td>
+      </tr>
+-->
+
+
+
+      <tr>
+        <td align="right">详细开户地址：</td>
+        <td><input size="30" name="BankAddress" type="text" class="ipt" id="BankAddress" value="123" /></td>
+        <td><div id="BankAddress1" class="info"><div id="10" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的详细开户地址。</div></div></div></td>
+      </tr>
+
+
+        <tr>
+            <td align="right"><span class="zc_hong">*</span>手机号码：</td>
+            <td><input size="30" name="UserTel" type="text" class="ipt"  id="UserTel" onFocus="notice('13','')"  onblur="notice('13','none')" onKeyUp="javascript:Null_Full(this.name)" value="18018281234"/></td>
+            <td><div id="UserTel1" class="info"><div id="13" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的手机号码。</div></div></div></td>
+        </tr>
+
+
+        <tr>
+            <td align="right"><span class="zc_hong">*</span>住址省份：</td>
+            <td><select name="province" id="s1" style="width: 190px;"  >
+                <option></option>
+
+            </select></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="right"><span class="zc_hong">*</span>住址城市：</td>
+            <td><select name="city" id="s2" style="width: 190px;" >
+                <option></option>
+            </select></td>
+            <td>&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td align="right"><span class="zc_hong">*</span>详细联系地址：</td>
+            <td><input size="30" name="address" type="text" class="ipt" id="address" value="123" /></td>
+            <td><div id="address1" class="info"><div id="120" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的详细联系地址。</div></div></div></td>
+        </tr>
+
+
+        <script language = JavaScript>
+            var s=["s1","s2"];
+            var opt0 = ["请选择","请选择"];
+            function setup()
+            {
+                for(i=0;i<s.length-1;i++)
+                    document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
+                change(0);
+            }
+            setup();
+        </script>
+      <tr>
+        <td colspan="3" style="height:5px;"><hr></td>
+      </tr>
+      <!--     <tr>
+           <td align="right"><span class="zc_hong">*</span>身份证号：</td>
+           <td><input size="30" name="UserCode" type="text" class="ipt" id="UserCode" onFocus="notice('11','')"  onblur="notice('11','none')" onKeyUp="javascript:Null_Full(this.name)" value="{$regData.user_code}" maxlength="18" /></td>
+
+
+         <td><div id="UserCode1" class="info"><div id="11" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的身份证号。</div></div></div></td>
+         </tr>
+         <tr>
+           <td align="right">联系地址：</td>
+           <td><input size="30" name="UserAddress" type="text" class="ipt" id="UserAddress" onFocus="notice('12','')"  onblur="notice('12','none')" onKeyUp="javascript:Null_Full(this.name)" /></td>
+           <td><div id="UserAddress1" class="info"><div id="12" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的联系地址。</div></div></div></td>
+         </tr>
+
+
+      <tr style="display:none;">
+        <td align="right"><span class="zc_hong">*</span>E-Mail：</td>
+        <td><input size="30" name="UserEmail" type="text" class="ipt"  id="UserEmail" onFocus="notice('15','')"  onblur="notice('15','none')" onKeyUp="javascript:Null_Full(this.name)" value="44@163.com" /></td>
+        <td><div id="UserEmail1" class="info"><div id="15" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的 E-Mail。（找回密码时使用，请认真填写）</div></div></div></td>
+      </tr>
+      <tr>
+        <td align="right"><span class="zc_hong">*</span>Q Q：</td>
+        <td><input size="30" name="qq" type="text"  id="qq" class="ipt" onKeyUp="javascript:Null_Int(this.name)" onFocus="notice('16','')"  onblur="notice('16','none')" value="{$regData.qq}" /></td>
+        <td><div id="qq1" class="info"><div id="16" class="focus_r" style="display:none;"><div class="msg_tip">请输入您的 Q Q。</div></div></div></td>
+      </tr>
+
+-->
+
+        <!--
+
+                <tr>
+                    <td align="right">申请级别：</td>
+                    <td colspan="2">
+                     <volist name="s9" id="svo">
+                        <input size="30" name="cpzj" type="radio" <if condition="$key eq 0">checked="checked"</if> value="{$s9[$key]}" />
+                        <strong>&nbsp;<span class="STYLE3">{$s9[$key]} 元</span>&nbsp;</strong>
+                     </volist>
+                    </td>
+                </tr>
+
+   -->
+
+               <!--        <tr>
+                            <td align="right">申请级别：</td>
+                            <td colspan="2">
+                            <volist name="s9" id="svo" offset="0" length='1'>
+                            <eq name="key" value="0">
+                            <input size="30" name="u_level" type="radio" id="radio" value="{$key}" checked="checked"  />
+                            <strong>&nbsp;<span class="STYLE3">{$s9[$key]} 元</span>&nbsp;(<span class="STYLE3">{$str28[$key]} </span>)</strong>
+                            <else/>
+                            <input size="30" name="u_level" type="radio" id="radio" value="{$key}"/>
+                            <strong>&nbsp;<span class="STYLE3">{$s9[$key]} 元</span>&nbsp;(<span class="STYLE3">{$str28[$key]} </span>)</strong>
+                            </eq>
+                            </volist>
+
+                            </td>
+                      </tr>   -->
+
+        <tr>
+            <td align="right">申请级别：</td>
+            <td colspan="2">
+                <volist name="s9" id="v" >
+
+                        <input size="30" name="cpzj" type="radio" id="radio" value="{$s9[$key]}"  <if condition="$key eq 0">checked="checked"</if>  />
+                        <strong><span class="STYLE3">{$s9[$key]} 积分</span>[<span class="STYLE3">{$str28[$key]} </span>]</strong>&nbsp;&nbsp;&nbsp;
+
+                </volist>
+
+            </td>
+        </tr>
+
+
+        <tr>
+
+
+<td colspan="3" >
+<table width="90%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" align="center" bgcolor="#b9c8d0">
+
+  <tr align="center" class="size14">
+    <th width="20%" nowrap height="25">产品名称</th>
+    <th width="20%" nowrap height="25">产品图片</th>
+    <th width="20%" nowrap>产品价格</th>
+    <th width="20%" nowrap>数量</th>
+    <th width="20%" nowrap>总金额</th>
+
+  </tr>
+
+    <volist name="plist" id="vo">
+    <tr align="center">
+      <td nowrap height="22"><input style="display:none;" type="checkbox" class="box" name="id[]" value="{$vo.id}" id="check{$vo.id}">{$vo.name}</td>
+      <td nowrap height="22"><img src="{$vo.img}" width="150" height="150"></td>
+      <td nowrap><a id="jiaqian{$vo.id}">{$vo.money}</a></td>
+      <td nowrap><input size="30" id="shu{$vo.id}" name="shuliang[]" type="text" onKeyUp="jia({$vo.id})"  value="0" size="6" maxlength="15" />
+        </td>
+      <td nowrap><input size="30" class="jais" id="he{$vo.id}" name="money[]" type="text" size="6" value="0" readonly /></td>
+    </tr>
+    </volist>
+
+</table>
+</td>
+</tr>
+
+         <tr>
+            <td colspan="3" >
+            <table width="100%" class="tab3" border="0" cellpadding="0" cellspacing="1">
+
+
+
+               <tr>
+                    <td align="right"><span class="zc_hong">*</span>产品金额：</td>
+                    <td><input size="30" name="product_cpzj" type="text" class="ipt"  id="cpzj" onFocus="notice('133','')"  onblur="notice('133','none')" onKeyUp="javascript:Null_Full(this.name)" value="123"/></td>
+                    <td></td>
+                </tr>
+
+
+
+              <tr>
+                <td width="20%" align="right"><span class="hong">* </span>收货人姓名：</td>
+                <td><input size="30" name="us_name" type="text" id="us_name" value="123" maxlength="20" /></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="hong">* </span>收货地址：</td>
+                <td><input size="30" name="us_address" type="text" id="us_address" value="123" maxlength="100" /></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="hong">* </span>收货人电话：</td>
+                <td><input size="30" name="us_tel" type="text" id="us_tel" value="112" maxlength="20" /></td>
+              </tr>
+            </table>
+			</td>
+          </tr>
+
+
+        <tr>
+        <td align="right">&nbsp;</td>
+        <td><span class="center">
+          <input size="30" name="submit1" id="Access" type="submit" class="button_text" value="注册" />
+&nbsp;&nbsp;
+<input size="30" name="重置" type="reset" class="button_text" value="重置" id="重置" />
+        </span></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<script>
+function jia(value){
+
+  var price = document.getElementById('jiaqian'+value).innerHTML;
+  var shu = document.getElementById('shu'+value).value;
+
+
+
+  if(isNaN(shu)){
+     alert("数量必须为数字");
+      document.getElementById('shu'+value).value=0;
+  }
+
+    if(isNaN(shu)){
+        alert("数量必须为数字");
+        document.getElementById('shu'+value).value=0;
+    }
+
+    if(shu==''){
+        alert("数量必须填写数字");
+        document.getElementById('he'+value).value=0;
+    }
+
+
+    var FirstChar=shu.substr(0,1);
+    if(FirstChar=="0")
+    {
+        alert('数量不能为0开头,请填写真实的数量');
+        document.getElementById('shu'+value).value=0;
+        document.getElementById('check'+value).checked=false;
+        document.getElementById('he'+value).value=0;
+    }else{
+
+        var vald = price * shu;
+        if(vald >0){
+
+            document.getElementById('he'+value).value=vald;
+            document.getElementById('check'+value).checked=true;
+        }else{
+
+            document.getElementById('check'+value).checked=false;
+            document.getElementById('cpzj').value=0;
+        }
+    }
+
+     gansi()
+
+}
+
+  function gansi(){
+
+
+
+      var str=document.getElementsByClassName("box");
+
+      var objarray=str.length;
+      var chestr="";
+      for (i=0;i<objarray;i++)
+      {
+          if(str[i].checked == true)
+          {
+              chestr+=str[i].value+",";
+
+
+          }
+      }
+
+      var result=chestr.split(",");
+      var sum = '';
+      for(var i=0;i<result.length;i++){
+
+
+         var ad  = document.getElementById("he"+result[i]).value;
+
+          sum+=ad+",";
+
+          chuan(sum);
+
+      }
+
+  }
+
+
+ function chuan(sum){
+     var result=sum.split(",");
+     var sum1 = 0;
+
+     for(var i=0;i<result.length;i++) {
+            if(result[i]){
+                sum1 = parseFloat(sum1)+ parseFloat(result[i]);
+            }
+     }
+     document.getElementById('cpzj').value=sum1;
+ }
+
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,468 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title><?php echo ($System_namex); ?></title>
+<link href="__PUBLIC__/Css/body.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="__PUBLIC__/Css/menu.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="__PUBLIC__/Css/main.css" rel="stylesheet" media="all" type="text/css" />
+<script type="text/javascript">document.write("<scr"+"ipt src=\"__PUBLIC__/Js/jquery-1.7.2.js\"></sc"+"ript>")</script>
+<script type="text/javascript">
+var timeout         = 500;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+var jq = jQuery.noConflict();
+function jsddm_open()
+{	jsddm_canceltimer();
+	jsddm_close();
+	ddmenuitem = jq(this).find('ul').eq(0).css('visibility', 'visible');}
+
+function jsddm_close()
+{	if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+function jsddm_timer()
+{	closetimer = window.setTimeout(jsddm_close, timeout);}
+
+function jsddm_canceltimer()
+{	if(closetimer)
+	{	window.clearTimeout(closetimer);
+		closetimer = null;}}
+
+jq(document).ready(function()
+{	jq('#jsddm > li').bind('mouseover', jsddm_open);
+	jq('#jsddm > li').bind('mouseout',  jsddm_timer);});
+
+document.onclick = jsddm_close;
+  </script>
+<script type="text/javascript">
+function setPrice(data1,data2,data3){
+	data = parseInt(data1) * parseInt(jq("#num"+data2+"").val());
+	jq ("#price"+data3).html(data);
+	var zprice = 0;
+	for (i=0;i<30;i++){
+	   if (jq ("#price"+i).html()){
+		   zprice += parseInt(jq ("#price"+i).html());
+	   }
+	}
+	jq ("#zprice").html(zprice);
+}
+</script>
+
+<script>
+   function show(){
+	 document.getElementById("ddd").style.display="block";
+   }
+
+   function hide(){
+	  document.getElementById("ddd").style.display="none";
+   }
+
+   function show1(){
+	  document.getElementById("dddd").style.display="block";
+   }
+
+   function hide1(){
+	  document.getElementById("dddd").style.display="none";
+   }
+</script>
+</head>
+<body class="index_bg">
+<!--<div class="hengtiao">
+
+<div class="zhongshpin"></div> 
+
+</div>-->
+<div class="header_bg">
+    <div class="fahgenrs"><span id="ca_clor" style="font-size:12px; font-family:Verdana, Geneva, sans-serif;"></span></div>
+</div>
+<div id="container">
+<div id="maincont">
+
+<div id="header">
+<div class="top_title" style="color:#FFF">
+	<div id="nihao"></div>  
+</div>
+	<div class="top_user">欢迎您：<?php echo ($fck_rs['user_id']); ?></div>
+    <div id="menu_all">
+
+
+<ul id="jsddm">
+	<li><a href="__APP__/">首页</a>
+    </li>
+<?php if(($fck_rs['is_pay']) >= "1"): ?><li><a href="#">新闻公告</a>
+    <ul>
+        <li><a href="__APP__/News/News" target="main">新闻公告</a></li>
+      <!--  <li><a href="__APP__/Plan/plan/" target="main">奖励计划</a></li>  -->
+    </ul>
+    </li>
+    <li><a href="#">账户管理</a>
+	<ul>
+        <li><a href="__APP__/Change/cody/c_id/3" target="main">账户查询</a></li>
+        <li><a href="__APP__/Bonus/cody/c_id/1" target="main">奖励明细</a></li>
+        <li><a href="__APP__/Change/cody/c_id/4" target="main">积分明细</a></li>
+
+     <?php if(($fee_i10) == "0"): ?><li><a href="__APP__/Currency/cody/c_id/1" target="main">奖励提现</a></li><?php endif; ?>
+
+
+
+        <!-- <li><a href="__APP__/Currency/cody/c_id/4" target="main">VAP提现</a></li>
+             <li><a href="__APP__/Agent/cody/c_id/8" target="main">签约纪录</a></li>
+             <li><a href="__APP__/Agent/cody/c_id/7" target="main">追加签约</a></li>
+             <li><a href="__APP__/Currency/cody/c_id/4" target="main">B网提现</a></li> -->
+
+<!--
+        <?php if((($fck_rs['id'] != '') and ($fck_rs['id'] != 1))): ?><li><a href="__APP__/Agent/cody/c_id/1" target="main">申请互助</a></li><?php endif; ?>  -->
+
+        <li><a href="__APP__/Transfer/cody/c_id/1" target="main">积分转账</a></li>
+
+        <?php if(($fee_i12) == "0"): ?><li><a href="__APP__/Recharge/cody/c_id/1" target="main">积分充值</a></li><?php endif; ?>
+
+        <li><a href="__APP__/Transfer/cody/c_id/3" target="main">VAP转换</a></li>
+        <li><a href="__APP__/Transfer/shifang" target="main">vap解冻记录</a></li>
+        <!--
+           <?php if(($fck_rss['id'] != '')): ?><li><a href="__APP__/Agent/cody/c_id/8" target="main">晋级管理</a></li><?php endif; ?>
+
+            <li><a href="__APP__/Recharge/cody/c_id/3" target="main">在线充值</a></li> -->
+    </ul>   
+    </li>
+
+
+    <li><a href="#">客户管理</a>
+        <ul>
+
+            <li><a href="__APP__/Reg/users" target="main">新注册会员</a></li>
+
+            <!-- <li><a href="__APP__/Uplevel/cody/c_id/1" target="main">申请成为代理商</a></li> -->
+
+
+            <li><a href="__APP__/Agent/cody/c_id/2" target="main">未开通会员</a></li>
+            <li><a href="__APP__/Agent/cody/c_id/3" target="main">已开通会员</a></li>
+            <!-- <li><a href="__APP__/User/cody/c_id/1" target="main">签约会员列表</a></li>-->
+           
+         </ul>
+     </li>
+
+
+
+
+     <li><a href="#">市场信息</a>
+     <ul>
+         <li><a href="__APP__/Tree/cody/c_id/6" target="main">推荐关系表</a></li>
+
+         <li><a href="__APP__/User/cody/c_id/4/" target="main">业绩记录</a></li>
+
+         <?php if(($fee_i11) == "0"): ?><li><a href="__APP__/Gouwu/cody/c_id/6/" target="main">物流管理</a></li><?php endif; ?>
+
+      <!--  <li><a href="__APP__/Tree/cody/c_id/5" target="main">A网络图</a></li>
+
+         <li><a href="__APP__/User/cody/c_id/1" target="main">A网推荐关系</a></li>
+         <li><a href="__APP__/Tree/cody/c_id/9" target="main">B网络图</a></li>  -->
+
+    </ul>
+    </li>
+    <li><a href="#">资料修改</a>
+    <ul>
+        <li><a href="__APP__/Change/cody/c_id/1" target="main">修改资料</a></li>
+        <li><a href="__APP__/Change/cody/c_id/2" target="main">修改密码</a></li>
+    </ul>
+    </li>
+    
+    
+    <li><a href="#">收发邮件</a>
+        <ul>
+            <li><a href="__APP__/Msg/inmsg/" target="main">收件箱</a></li>
+            <li><a href="__APP__/Msg/outmsg/" target="main">发件箱</a></li>
+            <li><a href="__APP__/Msg/writemsg/" target="main">我要留言</a></li>
+        </ul>
+    </li>
+
+
+
+    <!--    <li><a href="__APP__/Gouwu/cody/c_id/3/" target="main">购物商场</a>
+        <ul>
+
+
+            <li > <a href="__APP__/Gouwu/shopCar/" target="main">查看购物车</a> </li>
+            <li ><a href="__APP__/Gouwu/cody/c_id/4/" target="main">我的订单</a></li>
+
+
+
+
+        <li id="dd" onMouseOver="show1()" onMouseOut="hide1()"><a href="__APP__/Gouwu1/cody/c_id/3/" target="main">购物商场</a>
+             <div id="dddd" style="display:none; position:absolute; margin-left:120px; margin-top:-35px; width:100px; background:#FFF;">
+                <div><a href="__APP__/Gouwu1/shopCar/" target="main">查看购物车</a></div>
+                <div><a href="__APP__/Gouwu1/cody/c_id/4/" target="main">我的订单</a></div>
+             </div>
+        </li>
+        </ul>
+        </li>
+    -->
+    
+   
+
+ <!--   <li><a href="#">购物商场</a>
+    <ul>
+    <li><a href="__APP__/Gouwu1/cody/c_id/3/" target="main">购物商场</a></li>
+    <li><a href="__APP__/Gouwu1/shopCar/" target="main">查看购物车</a></li>
+    <li><a href="__APP__/Gouwu1/cody/c_id/4/" target="main">我的订单</a></li>
+    </ul>
+    </li>  -->
+
+<!--     <li><a href="#">交易市场</a>
+    <ul>
+    <li><a href="__APP__/Cash/eb_sell/" target="main">卖出货积分</a></li>
+    <li><a href="__APP__/Cash/eb_buy/" target="main">买入货积分</a></li>
+    <li><a href="__APP__/Cash/cody/c_id/3/" target="main">买入记录</a></li>
+    <li><a href="__APP__/Cash/cody/c_id/4/" target="main">卖出记录</a></li>
+    <li><a href="__APP__/Cash/cody/c_id/5/" target="main">历史查询</a></li>
+    </ul>
+    </li> --><?php endif; ?>
+   
+    <?php if(($fck_rs['is_boss']) >= "1"): ?><li><a href="#">后台管理</a>
+	<ul>
+
+     <?php if((($arss[1] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/5" target="main">当期出纳</a></li><?php endif; ?>
+
+
+      <?php if((($arss[2] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/8" target="main">奖励查询</a></li><?php endif; ?>
+
+
+
+       <?php if((($arss[3] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/1" target="main">会员审核</a></li><?php endif; ?>
+
+
+
+       <?php if((($arss[4] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/2" target="main">会员管理</a></li><?php endif; ?>
+
+
+
+   <!--     <?php if((($arss[4] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/36" target="main">服务中心</a></li><?php endif; ?>  -->
+
+
+
+        <?php if((($arss[8] == 1) or ($fck_rs['id'] == 1))): if(($fee_i12) == "0"): ?><li><a href="__APP__/Recharge/cody/c_id/2" target="main">充值管理</a></li><?php endif; ?>
+         <!-- <li><a href="__APP__/Recharge/cody/c_id/4" target="main">在线充值管理</a></li> --><?php endif; ?>
+
+
+
+         <?php if((($arss[16] == 1) or ($fck_rs['id'] == 1))): ?><!-- <li><a href="__APP__/Uplevel/cody/c_id/3" target="main">代理商管理</a></li> -->
+            <!-- <li><a href="__APP__/Uplevel/cody/c_id/2" target="main">任命职务</a></li> -->
+
+           <!-- <li><a href="__APP__/Gouwu/cody/c_id/1/" target="main">产品管理</a></li>--><?php endif; ?>
+
+
+        <?php if((($arss[16] == 1) or ($fck_rs['id'] == 1))): ?><!-- <li><a href="__APP__/Cash/cody/c_id/6" target="main">委托交易处理</a></li> -->
+            <!-- <li><a href="__APP__/LinkImg/codyT/c_id/1" target="main">广告管理</a></li> -->
+
+            <li><a href="__APP__/Gouwu/cody/c_id/1/" target="main">产品管理</a></li>
+
+         <!--   <li><a href="__APP__/Youzi/fahuo" target="main">发货管理</a></li> --><?php endif; ?>
+
+
+
+
+
+
+        <?php if((($arss[20] == 1) or ($fck_rs['id'] == 1))): if(($fee_i11) == "0"): ?><li><a href="__APP__/Gouwu/cody/c_id/2/" target="main">物流管理</a></li><?php endif; endif; ?>
+
+
+
+
+        <?php if((($arss[21] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/37" target="main">积分纪录</a></li><?php endif; ?>
+
+
+
+
+        <?php if((($arss[22] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/38" target="main">vap解冻记录</a></li><?php endif; ?>
+
+
+        <?php if((($arss[23] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/15" target="main">IP白名单</a></li><?php endif; ?>
+
+
+
+<!--
+        <?php if((($arss[16] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/Gouwu1/cody/c_id/1/" target="main">商城商品管理</a></li>
+            <li><a href="__APP__/Gouwu1/cody/c_id/2/" target="main">商城物流管理</a></li><?php endif; ?>
+-->
+
+
+
+        <!--
+         <?php if((($arss[6] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/32" target="main">结算重消</a></li><?php endif; ?>
+
+          <?php if((($arss[6] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/11" target="main">结算奖励</a></li><?php endif; ?>
+
+          <?php if((($arss[6] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/jiesuank" target="main">结算K值</a></li><?php endif; ?>
+        -->
+
+
+        <?php if((($arss[17] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/18" target="main">奖励明细</a></li><?php endif; ?>
+
+
+
+         
+         <?php if((($arss[7] == 1) or ($fck_rs['id'] == 1))): if(($fee_i10) == "0"): ?><li><a href="__APP__/Currency/cody/c_id/2" target="main">提现管理</a></li><?php endif; endif; ?>
+
+
+
+
+
+        <?php if((($arss[14] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/32" target="main">结算销售奖</a></li>
+
+
+
+
+            <!-- <li><a href="__APP__/Gouwu/cody/c_id/1/" target="main">产品管理</a></li>
+              <li><a href="__APP__/Agent/codyT/c_id/5" target="main">分公司管理</a></li> -->
+            <!-- <li><a href="__APP__/YouZi/codyT/c_id/30" target="main">分红查看</a></li>--><?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+        <?php if((($arss[6] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/33" target="main">结算服务佣金</a></li>
+            <!-- <li><a href="__APP__/Gouwu/cody/c_id/2/" target="main">物流管理</a></li>
+              <li><a href="__APP__/Agent/codyT/c_id/5" target="main">分公司管理</a></li> -->
+            <!-- <li><a href="__APP__/YouZi/codyT/c_id/30" target="main">分红查看</a></li>--><?php endif; ?>
+
+
+
+
+
+
+        <?php if((($arss[9] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/34" target="main">结算市场积分</a></li>
+            <!--  <li><a href="__APP__/Agent/cody/c_id/9" target="main">晋级签约纪录</a></li>  --><?php endif; ?>
+
+
+
+
+
+        <?php if((($arss[15] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/35" target="main">结算董事奖励</a></li>
+            <!--  <li><a href="__APP__/Youzi/fahuo" target="main">发货管理</a></li>  --><?php endif; ?>
+
+
+
+
+        
+<!--        <li><a href="__APP__/Transfer/cody/c_id/2" target="main">转账管理</a></li>-->
+       <!-- <li><a href="__APP__/Consume/cody/c_id/2" target="main">封顶申请管理</a></li>-->
+        <!--<li><a href="__APP__/Recharge/cody/c_id/4" target="main">在线充值管理</a></li>-->
+        <!--<li><a href="__APP__/YouZi/cody/c_id/28" target="main">重复消费清单</a></li>-->
+
+
+         <?php if((($arss[10] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/News/cody/c_id/1/" target="main">新闻公告</a></li><?php endif; ?>
+
+
+
+
+
+         <?php if((($arss[18] == 1) or ($fck_rs['id'] == 1))): ?><!--   <li><a href="__APP__/Plan/cody/c_id/1/" target="main">市场计划</a></li>  -->
+             <li><a href="__APP__/User/cody/c_id/5/" target="main">省级人数</a></li><?php endif; ?>
+
+
+
+
+        <?php if((($arss[15] == 1) or ($fck_rs['id'] == 1))): ?><!--    <li><a href="__APP__/Youzi/cody/c_id/31/" target="main">本周新增签约额</a></li>
+             <li><a href="__APP__/Plan/cody/c_id/4/" target="main">交易协议设置</a></li> -->
+            <!-- <li><a href="__APP__/Plan/cody/c_id/2/" target="main">注册协议</a></li> --><?php endif; ?>
+
+
+
+        
+        <!--<li><a href="__APP__/Plan/cody/c_id/2/" target="main">公司简介设置</a></li>-->
+
+        <?php if((($arss[19] == 1) or ($fck_rs['id'] == 1))): ?><!--        <li><a href="__APP__/Imag/codyT/c_id/1" target="main">下载专区</a></li>-->
+        <li><a href="__APP__/YouZi/cody/c_id/22" target="main">首页图片</a></li><?php endif; ?>
+
+
+
+        
+         <?php if((($arss[11] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/7" target="main">数据备份</a></li><?php endif; ?>
+
+
+
+
+         <?php if((($arss[12] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/3" target="main">参数设置</a></li><?php endif; ?>
+
+
+
+
+
+
+         <?php if((($arss[13] == 1) or ($fck_rs['id'] == 1))): ?><li><a href="__APP__/YouZi/cody/c_id/9" target="main">清空数据</a></li><?php endif; ?>
+    </ul>
+	</li><?php endif; ?>
+
+   
+	<li>
+		<a href="__APP__/Public/LogOut" onClick="{if(confirm('确定安全退出吗?')){this.document.selform.submit();return true;}return false;}" target="_top">退　出</a>
+	</li>
+</ul>
+</div>
+<script language="javascript">
+	function settime()
+		{
+		var myyear,mymonth,myweek,myday,mytime,mymin,myhour,mysec;
+		function initArray(){
+			this.length=initArray.arguments.length;
+			for(var i=0;i<this.length;i++){
+				this[i+1]=initArray.arguments[i];
+			}
+		}
+		var d=new initArray(" 星期日"," 星期一"," 星期二"," 星期三"," 星期四"," 星期五"," 星期六");
+	    var mydate=new Date();
+		myyear=mydate.getFullYear();
+		mymonth=mydate.getMonth()+1;
+		myday=mydate.getDate();
+		myhour=mydate.getHours();
+		mymin=mydate.getMinutes();
+		mysec=mydate.getSeconds();
+		mytime =   myyear+"年"+mymonth+"月"+myday+"日" + " " + d[mydate.getDay()+1] + " "+myhour+":"+mymin+":"+mysec;
+		if(mytime.length<25){
+			for(var i=mytime.length;i<=25;i++){
+				mytime += "&nbsp;";
+			}
+		}
+		document.getElementById("nihao").innerHTML =  "<img src=__PUBLIC__/Images/top_time.gif  style=float:left;padding-top:2px />" + "&nbsp;" + "" + mytime;
+		setTimeout('settime()',1000);
+	}
+	settime();
+</script>
+
+
+<!--<div class="logo"><img src="__PUBLIC__/Images/logo.png"/></div>-->
+</div>
+
+<div id="center_layout" style="padding-top:0; ">
+
+<iframe id="main" style="z-index: 1; width:100%" name="main" src="__APP__/Public/main" frameborder="0" scrolling="auto"   onload="turnHeight('main');" target="self" allowtransparency="true"></iframe>
+
+<div class="clear10"></div>
+  
+</div>
+</div>
+</div>
+<div class="footer">Copyright © 2016-2020 <?php echo ($System_namex); ?> ,All Right Reserved.</div>
+</body>
+</html>
+<script language="javascript">
+function turnHeight(iframe)
+{
+    var frm = document.getElementById(iframe);
+	frm.height = 200;
+    var subWeb = document.frames ? document.frames[iframe].document : frm.contentDocument;
+    if(frm != null && subWeb != null)
+    {
+	if (subWeb.body.scrollHeight<200){
+	frm.height = 200;
+	}else{
+	frm.height = subWeb.body.scrollHeight + 30;
+	}
+	}
+}
+</script>

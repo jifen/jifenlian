@@ -1,0 +1,120 @@
+<include file="../Public/header" />
+
+<div style="width:100%; line-height:30px; text-indent: 5px; height:20px; "></div>
+<!-- 				left -->
+<div id="zongbox">
+<div id="left_layout">
+<div class="notice">
+	<div class="titles icon_user ">用户中心</div>
+		<div class="contents" style="width:273px; height:200px">
+			<div id="user-manage">
+				  <table height="160" width="100%" cellpadding="0" cellspacing="0">
+				    <tr>
+				      <td width="90" align="right">欢迎您：</td>
+				      <td width="110" class="red">{$fck_rs['user_id']}</td>
+					</tr>
+                  <!-- <tr>
+				      <td align="right">总奖励：</td>
+				      <td class="red">{$fck_rs['zjj']}</td>
+					</tr>-->
+                     <tr>
+				      <td align="right">奖励账户：</td>
+				      <td class="red">{$fck_rs['agent_use']}</td>
+					</tr>
+                    <tr>
+				      <td align="right">电子账户：</td>
+				      <td class="red">{$fck_rs['agent_cash']}</td>
+					</tr>
+                      <tr>
+				      <td align="right">红利账户：</td>
+				      <td class="red">{$fck_rs['fanli_money']}</td>
+					</tr>
+                     <tr>
+				      <td align="right">现金账户：</td>
+				      <td class="red">{$fck_rs['agent_cf']}</td>
+					</tr>
+                    
+				    <tr>
+				      <td align="right">未读邮件：</td>
+				      <td><U class="red">{$info_count}</U> 条 &nbsp;&nbsp;<a href="__APP__/Msg/inmsg/">查看&gt;&gt;</a></td>
+					</tr>
+                    <if condition="(($fck_rs['get_level'] eq 0) AND ($fck_rs['x_num'] egt 6) OR ($fck_rs['get_level'] eq 1) AND ($fck_rs['x_num'] egt 3))">
+                  <!--  <tr>
+				      <td align="right">封顶申请：</td>
+				      <td><input name="btnn" type="button" class="button_text" onclick="window.location='__APP__/Consume/cody/c_id/1/';" value="申请封顶升级"></td>
+					</tr>-->
+                    </if>
+				  </table>
+				</div>
+			</div>
+            <div class="titles icon_user" style="margin-top:20px;">常用快捷方式</div>
+            <div class="contents" style="width:273px; height:100px">
+					
+<div class="img-manage">
+            <ul class="img-list">
+                <li><a href="__APP__/Bonus/cody/c_id/1"><img src="__PUBLIC__/Images/REG.gif" alt="" border="0"/>
+                奖励列表</a></li>
+                <li><a href="__APP__/Transfer/cody/c_id/1"><img src="__PUBLIC__/Images/ShenQing_zx.gif" alt="" border="0"/>
+                会员转账</a></li>
+                <li><a href="__APP__/Tree/cody/c_id/5"><img src="__PUBLIC__/Images/game.gif" alt="" border="0"/>
+                团队结构</a></li>
+			</gt>
+                
+            </ul>
+                    <div class="clear"></div>
+            </div>
+			</div>
+            
+            <div class="titles icon_user " style="margin-top:20px;">碳排放新闻报道</div>
+			<div class="contents" style="width:273px; min-height:120px; _height:120px">
+			<div id="user-manage">
+				 <li><a href="http://tv.cntv.cn/video/C10598/14570c4a67da4baaa35e77dd861fc9da" target="_blank">http://tv.cntv.cn/video/C10598/14<br/>570c4a67da4baaa35e77dd861fc9da</a></li>
+                  <li><a href="http://v.ifeng.com/news/finance/201107/1e7ff484-d13a-4828-b8f0-3d625ced5fc8.shtml" target="_blank">http://v.ifeng.com/news/finance/<br/>201107/1e7ff484-d13a-4828-b8f0-3d625ced5fc8.shtml</a></li>
+			  </div>
+			</div>
+	</div>
+</div>
+<div id="right_layout">
+                <div class="notice">
+            <div align="center">
+<script type="text/javascript"> 
+var swf_width=700
+var swf_height=250
+var files='__PUBLIC__/Images/01.jpg|__PUBLIC__/Images/02.jpg|__PUBLIC__/Images/03.jpg';
+var links='';
+var texts='';
+ 
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase=" http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+document.write('<param name="movie" value="__PUBLIC__/Swf/bcastr.swf"><param name="quality" value="high">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'">');
+document.write('<embed src="__PUBLIC__/Swf/bcastr.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'& menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage=" http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>'); 
+//-->
+</script>
+</div>
+	 
+	</div>
+<div class="clear"></div>
+	<div id="right_box">
+		<div class="notice"> 
+			<div class="titles"><div class="more"><a href="__APP__/News/News/" title="更多">更多</a></div>公司公告</div>        
+			<div class="contents">
+			<ul class="list_1 link_2">
+                <volist name="f_list" id="vo">
+                <li><span>{$vo.create_time|date='y-m-d',###}</span>．
+                <eq name="vo['bright']" value="1">
+                <a href="__APP__/News/News_show/NewID/{$vo.id}" style="color:#F00">{$vo['title']}</a>
+                <img src="__PUBLIC__/Images/new.gif" />
+                <else />
+                <a href="__APP__/News/News_show/NewID/{$vo.id}">{$vo['title']}</a>
+                </eq>
+                </li>
+                </volist>
+			</ul>
+		</div>
+		</div>
+       <!-- <li><span id="" style="line-height:24px; font-size:14px; font-weight:bold; color:red">推广链接：<a href="http://{$server}/Reg/us_reg/rid/{$fck_rs['id']}/" target="_blank"><span id="copyurl" style="cursor:hand;" title="打开">http://{$server}/Reg/us_reg/rid/{$fck_rs['id']}/</span></a></span></li>-->
+					</div>
+				</div>			
+      </div>	
+</body></html>

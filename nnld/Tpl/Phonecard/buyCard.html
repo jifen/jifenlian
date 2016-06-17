@@ -1,0 +1,71 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/Ajax/ThinkAjax-1.js" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+
+<style>
+#agentall{ width:100%;}
+#agentall li{ width:230px; float:left; padding:5px; line-height:22px;}
+</style>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>续费 </h1></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tab1">
+  <tr>
+    <td>
+    <form method='post' id="form1" name="form1" action="__URL__/buyCardAC"/>
+    <table width="100%" border="0" cellpadding="3" cellspacing="0" class="tab4">
+      <tr>
+        <td width="20%" align="right"> 电子积分余额：</td>
+        <td width="20%"><font style="color:#F00;">{$fck_rs['agent_cash']}</font></td>
+        <td width="60%"></td>
+      </tr>
+      <tr>
+        <td width="20%" align="right"> 续费时间：</td>
+        <td width="20%">
+            <select name="stype">
+                <volist name="type_list" id="vo" key='key'>
+                    <option value='{$key}'>{$vo}个月</option>
+                </volist>
+            </select>
+        </td>
+        <td width="60%"></td>
+      </tr>
+      
+      <tr>
+        <td colspan="3" style="height:5px;"><hr></td>
+      </tr>
+      
+      <tr>
+        <td align="right">&nbsp;</td>
+        <td><span class="center">
+          <input name="submit1" id="Access" type="submit" class="button_text" value="确定续费" />
+
+          </span></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<script>
+function Calculate(nums){
+	var zk = {$str9[$fck_rs['u_level']-1]};
+	var mz = {$mz};
+	
+	var sum_money;
+	
+	sum_money = zk*nums*mz/10;
+	
+	document.getElementById("all_money").value = sum_money;
+	
+}
+
+
+
+</script>
+
+
+

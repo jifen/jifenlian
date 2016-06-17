@@ -1,0 +1,38 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>本周新增签约额 </h1></div>
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+	<thead>
+    <tr align="center">
+        <th nowrap>序号</th>
+        <th nowrap><span>签约会员</span></th>
+        <th nowrap><span>签约金额</span></th>
+        <th nowrap><span>会员服务中心</span></th>
+        <th nowrap><span>签约时间</span></th>
+        </tr>
+    </thead>
+    <volist name="list" id="vo">
+    <tr class="content_td lz" align="center">
+        <td nowrap>{$key+1}</td>
+        <td nowrap>{$vo['uid']|user_id}</td>
+        <td nowrap>{$vo['money']}</td>
+        <td nowrap>{$vo['shop_id']|user_id}</td>
+        <td nowrap>{$vo.adt|date='Y-m-d H:i:s',###}</td>
+    </tr>
+    </volist>
+
+</table>
+    <table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+        <tr>
+            <td align="center">签约总金额: <a style="color:#ff0099;">{$money}</a> </td>
+        </tr>
+    </table>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+    <tr>
+        <td>{$page}</td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
+<script>new TableSorter("tb1");</script>

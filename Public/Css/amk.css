@@ -1,0 +1,96 @@
+		
+/********************************内页***************************************/
+.ncenter_box{ width:1000px; margin:0 auto; margin-top:10px; height:auto; overflow:hidden; border:1px solid #CCC; padding:1px;}
+.ncenter_box .accounttitle{ width:100%; height:30px; float:left; background:#CCC; margin-bottom:20px;}
+.ncenter_box .accounttitle h1{ color:#A72F19; font-weight:bold; font-family:Microsoft Yahei; font-size:14px; display:block; text-indent:20px; margin:0px; line-height:30px; letter-spacing:0px;}
+.bottom{ width:1000px; height:75px; background:url(../Images/account_bottom.jpg) no-repeat; float:left; }
+
+/*---------------------------------------网络图样式------------------------------------------------------------*/
+.l{text-align:center; width:33%;height:35px;}
+.m{text-align:center;width:18%; }
+.r{text-align:center;width:33%;}
+.e{text-align:center;width:20%;}
+.borderlrb{ border-left:solid 1px #CCCCCC;border-right:solid 1px #CCCCCC;border-bottom:solid 1px #CCCCCC;}
+.borderno{ border:none;}
+.borderall{ border:solid 1px #CCCCCC;}
+.borderlr{ border-left:solid 1px #CCCCCC;border-right:solid 1px #CCCCCC;}
+.borderlrt{background-repeat:no-repeat;background-position:center center;vertical-align: middle;height:64px;
+}
+td.tdfilter{position:relative;}
+table.tablefilter{width:120px;height:60px;border: solid 1px #93C0FF;	filter: Alpha(Opacity=100);	background-position:center;		background-repeat:no-repeat;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px;border-right-style: solid;	border-bottom-style: solid;	border-left-style: solid;border-right-color: #adba84;border-bottom-color: #adba84;	border-left-color: #adba84;}
+.tdfilter a{ color:#333;}
+
+.page-title h1 {
+padding: 0; height:30px; line-height:30px; color:#FFF; background:#CCC;font-weight: bold;
+font-size: 1.2em;
+text-indent:1em;
+}
+.page-title .other {
+color: #515151;
+border-top: #DADADA dotted 1px;
+font-size: 0.9em;
+margin: 0px 0 0;
+padding: 0px 0 0;
+width: 100%;
+}
+.list3{ list-style:none;}
+.list3 { border:1px solid #FFF}
+.list3 a{ float:left;  padding-left:18px; background:url(../Images/ico_txt.gif) 0 center no-repeat;}
+.list3 a:hover{ float:left;  padding-left:18px; background:url(../Images/ico_txt.gif) 0 center no-repeat; color:#090}
+.list3 li { text-align:right; line-height:24px; height:24px;  font-size:14px; padding:6px 10px 6px 4px;}
+.list3 tt { float:right; font-family:Tahoma,Arial; font-size:12px; color:#8c8c8c}
+/*---page_news--*/
+
+#news { font-size:14px; background:#f5f8fd; line-height:24px; padding:0px 10px; }
+#news h1 { color:#003;padding-bottom:8px; text-align:center; border-bottom:1px solid #c8d8f2; background:none; }
+#news .ns {text-align:center; font-size:12px; color:#666; margin-bottom:8px}
+.fanhueid{ width:980px; text-align:right; font-size:12px; font-weight:bold; height:30px; line-height:30px; background:#F9F9F9; margin-top:20px; padding-right:20px; margin-bottom:10px;}
+
+/*=========users--========*/
+/*=========users--========*/
+.c_p5{ margin-top:60px;}
+.c_p10{ margin-top:10px;}
+.tips{ border:1px solid #C75E1E; padding:5px; text-indent:22px; line-height:22px; font-size:12px; background-color: #FFF6D0; background-image: url(../Images/light.gif); background-repeat: no-repeat; background-position: 10px 6px; }
+.zc_hong{font-size:16px;color:#F00;}
+.hong{color:#F00; font-size:14px; font-family:Verdana, Geneva, sans-serif;}
+.lan{color:#00F;}
+.msg_tip { background:url(../Images/msg_bg.png) 0 -150px no-repeat;  height:16px; text-indent:20px; line-height:16px;float:left;}
+.msg_ok { background:url(../Images/msg_bg.png) 0 -250px no-repeat; height:16px; width:16px;  line-height:16px;float:left;}
+.msg_error { background:url(../Images/msg_bg.png) 0 0 no-repeat; height:16px; text-indent:20px; line-height:16px; float:left;}
+.focus_r { float:left; color:#333;  border:1px solid #CCC; height:16px; padding:2px 5px; padding-top:2px}
+.info {float:left; margin-left:10px;}
+.shou {font-size:14px !important; font-weight:bold !important;}
+/******控件---按钮*******/
+.bt_tj{ height:26px; background:url(../Images/account_btn.jpg); border:1px solid #a71a1a; font-size:12px; color:#FFF; padding:0px 18px; line-height:26px;}
+.bt_tj1{ width:170px; height:26px; background:url(../Images/corp_main_table_bbj.gif); border:none; font-size:14px; font-weight:bold; color:#fff; padding-left:18px; line-height:30px;}
+.inpt{ width:242px; height:24px; line-height:24px; background:url(../Images/account_inputbg.jpg) no-repeat; color:#555; padding-left:5px; border: none}
+.inp{ width:70px;height:24px; line-height:24px;background:url(../Images/account_inputbg.jpg) no-repeat; color:#555; padding-left:8px; border:none; border-right:1px solid #B8B8B8;}
+.yangs_bnte{ text-align:center;}
+
+.bar_header { background:url(../Images/bar_header.gif) repeat-x; height:22px; line-height:22px; text-indent:10px; font-weight:bold; color:#1083c3; text-align:center; font-size:12px;}
+.tablet .ttyyrer{ text-align:right; line-height:80px; font-size:12px;}
+.ttyyrer2{ text-align:left;}
+.nousen_page{ text-align:right; line-height:30px; font-size:12px;}
+
+/*问题解答*/
+#help_l { width:980px; padding:10px;background-color:#fbfbfb; _display:inline; font-size:12px;}
+.ct { margin:10px 0; float:right; margin-right:4px; _display:inline;}
+.help_tw { float:right; width:200px; margin-top:20px; _display:inline; }
+.help_text { line-height:24px; margin-bottom:15px; color:#606060; border-bottom:1px dashed #CCC;}
+
+
+/********************************内页***************************************/
+.nimeida td{ border: solid 1px #F2F2F2;}
+.tips{ border:1px solid #9CC699; padding:5px; text-indent:22px; line-height:22px; font-size:12px; background-color: #FFF6D0; background-image: url(../Images/light.gif); background-repeat: no-repeat; background-position: 10px 6px; color:#F00; }
+
+/********************************内页***************************************/
+ .tab3{ background:#b9c8d0; border-spacing:1px;}
+.tab3 td{ background:url(../Images/bar_bg.gif); height:20px; line-height:20px; padding:0 2px;font-size:12px;}
+.tab3 th{ background:url(../Images/bar_header.gif) repeat-x; height:21px; line-height:21px; text-align:center;font-weight:bold; color:#d20f17;font-size:12px;}
+.tab3 th:hover{ background:url(../Images/th_hover3.gif) repeat-x; height:20px; line-height:20px; text-align:center; font-weight:bold;}
+
+.tab3_bottom{background:url(../Images/bar_bg.gif);height:24px; line-height:24px; padding:0 2px;font-size:12px;border-right:1px solid #b0bec7; border-top:1px solid #b0bec7;  border-bottom:1px solid #b0bec7; border-left:1px solid #b0bec7; padding-left:20px; padding-top:10px;}
+.btn1 { height:26px; background:url(../Images/account_btn.jpg); border:1px solid #a71a1a; font-size:12px; color:#FFF; padding:0px 18px; line-height:26px;}
+
+.tab4{ font-size:12px;}
+.tab4 td{ height:30px;}

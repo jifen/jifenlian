@@ -1,0 +1,39 @@
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Tag[ route_check ] --START--
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Run CheckRoute Behavior [ RunTime:0.025146s ]
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Tag[ route_check ] --END-- [ RunTime:0.025258s ]
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Tag[ app_begin ] --START--
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000685s ]
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000759s ]
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | NOTIC: [8] Undefined variable: post CommonAction.class.php 第 217 行.
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | NOTIC: [2] Invalid argument supplied for foreach() CommonAction.class.php 第 217 行.
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | NOTIC: [8192] Function eregi() is deprecated CommonAction.class.php 第 225 行.
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | NOTIC: [2] eregi() expects parameter 2 to be string, array given CommonAction.class.php 第 225 行.
+[ 2016-06-17T10:08:24+08:00 ] /t050/index.php/Public/login | NOTIC: [8] Use of undefined constant __ADMIN_GATE__ - assumed '__ADMIN_GATE__' CommonAction.class.php 第 450 行.
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | SQL: SHOW COLUMNS FROM `nnld_fee` [ RunTime:0.073621s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | SQL: SELECT `str21` FROM `nnld_fee` LIMIT 1   [ RunTime:0.000364s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_template ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run LocationTemplate Behavior [ RunTime:0.013247s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_template ] --END-- [ RunTime:0.013297s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_parse ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run ParseTemplate Behavior [ RunTime:0.167621s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_parse ] --END-- [ RunTime:0.167692s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_filter ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run ContentReplace Behavior [ RunTime:0.016148s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run TokenBuild Behavior [ RunTime:0.025460s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run WriteHtmlCache Behavior [ RunTime:0.022436s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run ShowRuntime Behavior [ RunTime:0.020281s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_filter ] --END-- [ RunTime:0.084595s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_end ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Run ShowPageTrace Behavior [ RunTime:0.016431s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/login | INFO: Tag[ view_end ] --END-- [ RunTime:0.016532s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Tag[ route_check ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Run CheckRoute Behavior [ RunTime:0.000588s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Tag[ route_check ] --END-- [ RunTime:0.000659s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Tag[ app_begin ] --START--
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000406s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000454s ]
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | NOTIC: [8] Undefined variable: post CommonAction.class.php 第 217 行.
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | NOTIC: [2] Invalid argument supplied for foreach() CommonAction.class.php 第 217 行.
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | NOTIC: [8192] Function eregi() is deprecated CommonAction.class.php 第 225 行.
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | NOTIC: [2] eregi() expects parameter 2 to be string, array given CommonAction.class.php 第 225 行.
+[ 2016-06-17T10:08:25+08:00 ] /t050/index.php/Public/verify/ | NOTIC: [8] Use of undefined constant __ADMIN_GATE__ - assumed '__ADMIN_GATE__' CommonAction.class.php 第 450 行.

@@ -1,0 +1,181 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+<script src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>申请互助 </h1></div>
+    <div style="display: none;" class="c_p5"><div class="tips">首次申请互助，请填写申请备注。 </div></div>
+	<table width="100%" border="0" cellpadding="3" cellspacing="0">
+		<form name="form1" method='post' id="form1" action="__URL__/agentsAC">
+		<tr>
+			<td width="25%" height="30" align="right">会员编号：</td>
+			<td width="75%">{$fck_rs['user_id']}</td>
+		</tr>
+
+
+
+			<tr>
+				<td width="25%" height="30" align="right">当前奖励币：</td>
+				<td  class="hong" width="75%">{$fck_rs['agent_use']}</td>
+			</tr>
+
+
+			<tr>
+				<td width="25%" height="30" align="right">开通互助费用：</td>
+				<td class="hong" id="msg_tips">{$sheng_money}  元</td>
+
+				<input type="hidden" value="{$sheng_money}" id="money" name="money">
+
+			</tr>
+
+			<tr>
+				<td width="25%" height="30" align="right">申请互助状态：</td>
+
+
+				<td class="hong" id="msg_tipss">
+
+					  {$agent_status}
+
+
+				</td>
+
+
+			</tr>
+
+			<tr>
+				<td width="25%" height="30" align="right">申请互助时间：</td>
+				<td class="hong">
+
+					<eq name="fck_rs['shengji_time']" value="0" >
+                       无
+					<else/>
+
+						<if condition="($fck_rs['shengji_time'] neq 0)">
+						{$fck_rs['shengji_time']|date='Y-m-d H:i:s',###}
+                        </if>
+
+				</eq>
+				</td>
+			</tr>
+
+		<!--	<tr>
+				<td width="25%" height="30" align="right">通过互助时间：</td>
+				<td class="hong">
+
+					<eq name="fck_rs['shenghou_time']" value="0" >
+						无
+						<else/>
+
+						<if condition="($fck_rs['shenghou_time'] neq 0)">
+							{$fck_rs['shenghou_time']|date='Y-m-d H:i:s',###}
+						</if>
+
+					</eq>
+				</td>
+			</tr>   -->
+
+
+
+		<!--	<if condition="($fck_rs['shengji_time'] eq 0)">
+				<tr>
+					<td align="right">备注：</td>
+					<td><textarea name="content" id="content" cols="40" rows="8"></textarea></td>
+				</tr>
+			</if>  -->
+
+
+
+				<tr>
+					<td height="30">&nbsp;</td>
+
+
+					<td><input name="submit"  <if condition="($fck_rs['shengji_time'] neq 0)">type="button"<else/>type="submit"</if> class="button_text" <if condition="($fck_rs['shengji_time'] neq 0)">value="已经申请"<else/>value="申 请"</if> /></td>
+
+				</tr>
+
+ 
+<!--
+        <tr>
+			<td width="25%" height="30" align="right">理事级类型：</td>
+			<td>
+            <eq name="fck_rs['shoplx']" value="0" >
+            <select name="shoplx" id="shoplx">
+              <option value="1">{$Aname[0]}</option>
+              <option value="2">{$Aname[1]}</option>
+              <option value="3">{$Aname[2]}</option>
+            </select>
+            <else/>
+            	<eq name="fck_rs['shoplx']" value="1" >{$Aname[0]}</eq>
+                <eq name="fck_rs['shoplx']" value="2" >{$Aname[1]}</eq>
+                <eq name="fck_rs['shoplx']" value="3" >{$Aname[2]}</eq>
+            </eq></td>
+		</tr>
+
+
+		-->
+        <tr style="display:none">
+			<td width="25%" height="30" align="right">理事级区域：</td>
+			<td>
+            <eq name="fck_rs['shoplx']" value="0" >
+            <input name="shop_a" type="text" id="shop_a" value="1" size="50" maxlength="20" />
+            <else/>
+            {$fck_rs['shop_a']}
+            </eq>
+            </td>
+		</tr>
+        <tr id="xian" style="display:none">
+			<td width="25%" height="30" align="right">服务中心 县（市）区域：</td>
+			<td>
+            <eq name="fck_rs['shoplx']" value="0" >
+            <select name="shop_b" id="s2" >
+                <option></option>
+            </select>
+            <else/>
+            {$fck_rs['shop_b']}
+            </eq>
+            </td>
+		</tr>
+
+
+        
+        
+        <eq name="fck_rs.is_agent" value="3">
+		<tr>
+			<td align="right">备注：</td>
+		  <td><textarea name="content" id="content" cols="40" rows="8"></textarea></td>
+		</tr>
+		<tr>
+			<td height="30">&nbsp;</td>
+		  <td><input name="submit" type="submit"  class="button_text" value="申 请" /></td>
+		</tr>
+		</eq>
+        
+        
+        
+        
+		</form>
+	</table>
+</div>
+</body>
+</html>
+
+
+<script>
+	function checkMoney(u_level){
+		$.get("__APP__/Agent/checkMoney/u_level/"+u_level,{},function(result){
+			 var data=eval('('+result+')');
+
+
+			if(data[1] != ''){
+				document.getElementById("msg_tips").innerHTML=data[0]+'&nbsp;&nbsp;积分';
+				$("#money").val(data[0]);
+				document.getElementById("msg_tipss").innerHTML='未申请'+data[1];
+			}else{
+				document.getElementById("msg_tips").innerHTML='请往高级级别升级!';
+				document.getElementById("msg_tipss").innerHTML='该级别已经申请!';
+			}
+
+		});
+	}
+
+
+</script>

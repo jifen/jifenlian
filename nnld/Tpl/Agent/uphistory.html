@@ -1,0 +1,53 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+<script src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>晋级签约纪录 </h1></div>
+    <!--<div style="display: none;" class="c_p5"><div class="tips">首次申请互助，请填写申请备注。 </div></div> -->
+
+	<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" bgcolor="#b9c8d0">
+		<thead>
+		<tr align="center">
+			<th><span>服务中心</span></th>
+			<th><span>会员账号</span></th>
+			<th><span>原注册金额</span></th>
+			<th><span>总注册金额</span></th>
+			<th><span>追加金额</span></th>
+			<th><span>追加时间</span></th>
+		</tr>
+		</thead>
+		<volist name="level" id="vo">
+			<tr align="center">
+				<td>{$vo['get_uid']|user_id}</td>
+				<td>{$vo['pay_uid']|user_id}</td>
+				<td>{$vo['before_money']}</td>
+				<td>{$vo['total_money']}</td>
+				<td>{$vo['money']}</td>
+				<td>{$vo['adt_time']|date='Y-m-d H:i:s',###}</td>
+			</tr>
+		</volist>
+	</table>
+
+	<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+		<tr>
+			<td>{$page}</td>
+		</tr>
+	</table>
+
+
+	<table width="600" align="center">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="center"><form method='post' action="__URL__/uphistory">搜索会员：<input type="text" name="user_id" title="帐号查询">
+				<input type="submit" name="Submit" value="查询"  class="bt_tj"/>
+			</form></td>
+		</tr>
+	</table>
+
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,34 @@
+<include file="../Public/header" />
+<script language=javascript src="__PUBLIC__/Js/wpCalendar.js"></script>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>提现撤销说明 &nbsp;&nbsp;<a href="__APP__/Currency/adminCurrency">[返回]</a> </h1></div>
+<!-- 列表显示区域  -->
+<form name="form3" method="post" action="__URL__/adminCurrencyShuoming/id/{$id}">
+<table width="100%" cellpadding=3 border=0 cellspacing="1" id="tb1" bgcolor="#b9c8d0" class="tab3">
+
+
+
+    <tr class="content_td" align="center">
+
+        <td>会员姓名:<a style="color:#f70300;">{$rs['user_id']}</a> </td>
+        <td>提现金额:<a style="color:#f70300;">{$rs['epoint']}</a></td>
+        <td>撤销说明:<br/><textarea name="shuoming" style=" height: 80px; width:300px;"></textarea></td>
+    </tr>
+
+<input type="hidden" name="money" value="{$rs['epoint']}">
+    <input type="hidden" name="uid" value="{$rs['uid']}">
+
+</table>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+    <tr class="content_td" align="center">
+    	<td width="50%">
+	  <input type="submit" name="action" value="确认提交" class="button_text" onclick="{if(confirm('确定吗?')){return true;}return false;}">
+ </td>
+    </tr>
+</table>
+</form>
+
+</div>
+</body>
+</html>
+<script>new TableSorter("tb1");</script>

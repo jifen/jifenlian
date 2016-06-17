@@ -1,0 +1,36 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>分红详情&nbsp;&nbsp; [<a href='javascript:history.back()'>返回列表</a>] </h1></div>
+<form name="form3" method="post" action="__URL__/adminMenberAC">
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+	<thead>
+    <tr align="center">
+      <!--  <th><span>套餐</span></th>-->
+        <th><span>金额</span></th>
+        <th><span>时间</span></th>
+       
+    </tr>
+    </thead>
+    <volist name="list" id="vo">
+    <tr class="content_td lz" align="center">
+   
+
+   <!--     <td>{$lev[$vo['u_level']]}</td>-->
+        <td>{$vo['money']}</td>
+        <td>{$vo.pdt|date='Y-m-d H:i:s',###}</td>
+    </tr>
+    </volist>
+</table>
+
+
+</form>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+    <tr>
+        <td>{$page}</td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>
+<script>new TableSorter("tb1");</script>

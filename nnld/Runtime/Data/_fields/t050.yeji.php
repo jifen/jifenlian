@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'user_id', 2 => 'cpzj', 3 => 'cpzj_level', 4 => 'money', 5 => 'u_level', 6 => 'father_id', 7 => 're_id', 8 => 're_path', 9 => 'p_path', 10 => 'pdt', 11 => 'is_jiesuan', 12 => 'is_re_nums', 13 => 'is_benqi', 14 => 'is_yeji', 15 => 'is_team_yj', '_autoinc' => true, '_pk' => 'id', ); ?>

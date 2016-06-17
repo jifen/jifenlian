@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'uid', 2 => 'user_id', 3 => 'father_id', 4 => 'treeplace', 5 => 'p_path', 6 => 'p_level', 7 => 'num', 8 => 'l', 9 => 'r', 10 => 'u_level', 11 => 'down_num', 12 => 'sheng', 13 => 'time', 14 => 'is_time', 15 => 'is_suo', '_autoinc' => true, '_pk' => 'id', ); ?>

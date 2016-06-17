@@ -1,0 +1,38 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>申请分公司 </h1></div>
+    <!-- <div class="c_p5"><div class="tips">首次申请报单中心，请填写申请备注。 </div></div> -->
+	<table width="100%" border="0" cellpadding="3" cellspacing="0">
+		<form name="form1" method='post' id="form1" action="__URL__/companysAC">
+		<tr>
+			<td width="25%" height="30" align="right">会员编号：</td>
+			<td width="75%">{$fck_rs['user_id']}</td>
+		</tr>
+		<tr>
+			<td width="25%" height="30" align="right">申请分公司状态：</td>
+			<td class="hong">{$agent_status}</td>
+		</tr>
+		<tr>
+			<td width="25%" height="30" align="right">申请分公司时间：</td>
+		  <td><eq name="fck_rs['company_pdt']" value="0" ><else/>{$fck_rs['company_pdt']|date='Y-m-d H:i:s',###}</eq></td>
+		</tr>
+		<tr>
+			<td width="25%" height="30" align="right">开通分公司时间：</td>
+		  <td><eq name="fck_rs['company_rdt']" value="0" ><else/>{$fck_rs['company_rdt']|date='Y-m-d H:i:s',###}</eq></td>
+		</tr>
+        <lt name="fck_rs.is_company" value="1">
+		<tr>
+			<td align="right">备注：</td>
+		  <td><textarea name="content" id="content" cols="40" rows="8"></textarea></td>
+		</tr>
+		<tr>
+			<td height="30">&nbsp;</td>
+		  <td><input name="submit" type="submit"  class="button_text" value="申 请" /></td>
+		</tr>
+		</lt>
+		</form>
+	</table>
+</div>
+</body>
+</html>

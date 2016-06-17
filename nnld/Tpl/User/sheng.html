@@ -1,0 +1,55 @@
+<include file="../Public/header" />
+<script language=javascript src="__PUBLIC__/Js/laydate/laydate.js"></script>
+<load href="__PUBLIC__/Js/UserJs.js" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>省级记录 </h1></div>
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+	<thead>
+    <tr align="center">
+        <th nowrap>序号</th>
+        <th nowrap><span>会员省级</span></th>
+        <th nowrap><span>同省人数</span></th>
+        <th nowrap><span>操作</span></th>
+        </tr>
+    </thead>
+    <volist name="list" id="vo">
+    <tr class="content_td lz" align="center">
+        <td nowrap>{$key+1}</td>
+        <td nowrap>{$vo['province']}</td>
+        <td nowrap>{$vo['province']|renshu}</td>
+        <td nowrap><a href="__URL__/member/province/{$vo['id']}">查看详细人数</a></td>
+    </tr>
+    </volist>
+
+</table>
+   <!-- <table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+        <tr>
+            <td align="center">业绩总金额: <a style="color:#ff0099;">{$money}</a> </td>
+        </tr>
+    </table> -->
+    <table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1" style="margin-top: 50px;">
+        <tr>
+            <td colspan="25" class="tabletd"><form id="form1" name="form1" method="post" action="__URL__/sheng"><!--业绩开始日期：<input name="start" type="text" id="start"  onclick="laydate()" />--> 选择省级：<select name="province" id="s1" >
+                <option></option>
+            </select>
+
+                <input type="submit" name="Submit" value="查询" class="button_text" />
+                &nbsp;&nbsp; </form></td>
+            <td width="40%">{$page}</td>
+        </tr>
+    </table>
+</div>
+<script language = JavaScript>
+    var s=["s1","s2"];
+    var opt0 = ["请选择","请选择"];
+    function setup()
+    {
+        for(i=0;i<s.length-1;i++)
+            document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
+        change(0);
+    }
+    setup();
+</script>
+</body>
+</html>
+<script>new TableSorter("tb1");</script>

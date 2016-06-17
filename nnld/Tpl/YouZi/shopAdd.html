@@ -1,0 +1,43 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>设置报单中心 </h1></div>
+<table width="100%" class="tab3" border="0" cellpadding="5" cellspacing="0" id="tb1">
+<form name="form3" method="post" action="__URL__/shopAc">
+<tr>
+				<td align="right" >&nbsp;</td>
+				<td >&nbsp;</td>
+</tr>
+<tr>
+				<td align="right" >报单中心：</td>
+				<td >
+                <select name="is_agent" size="1" id="is_agent">
+				    <option value="0" <eq name="fck_rs['is_agent']" value="0">selected="selected"</eq> >否</option>
+				    <option value="2" <eq name="fck_rs['is_agent']" value="2">selected="selected"</eq> >是</option>
+			    </select>
+                </td>
+</tr>
+<tr>
+				<td width="39%" align="right" ><strong>报单中心级别</strong></td>
+				<td width="61%" > <select name="shoplx" size="1" id="shoplx">
+               		 <volist name="shoplx" id="svoo">
+                           <option value="{$key}" <eq name="fck_rs['shoplx']" value="$key">selected="selected"</eq> >{$svoo}</option>
+                	 </volist>
+                                </select>
+                </td>
+</tr>
+
+<tr>
+				<td align="right" ><input name="uid" type="hidden" id="uid" value="{$fck_rs['id']}" /></td>
+				<td ><input type="submit" name="button" id="button" value="提交" class="button_text" />&nbsp;
+                <input type="button" name="button" id="button" value="返回" class="button_text" onclick="history.back();"/></td>
+</tr>
+<tr align="center">
+	<td colspan="2">&nbsp;</td>
+</tr>
+</form>
+</table>
+    </div>
+    <div class="bar_foot"></div>
+</div>
+</body>
+</html>

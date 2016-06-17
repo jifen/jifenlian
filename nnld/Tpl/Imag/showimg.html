@@ -1,0 +1,32 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>下载专区 </h1></div>
+<style>
+#agentall {
+	width:100%;
+}
+#agentall li {
+	width:230px;
+	float:left;
+	padding:5px;
+	line-height:22px;
+}
+.baidu{ display:inline; float:left; clear:both; margin-top:20px; font-size:14px;}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <ul class="rollul">
+      <volist name="list" id="vo" key="kk">
+      <li><span class="rolltx"><a href="{$vo.img_url}" style="cursor:hand;" target="_blank" title="查看大图">
+      <img src="{$vo.small_url}" width="120" height="120" /><br /><br /></a>
+      <a href="{$vo.img_url}" style="cursor:hand;" target="_blank" title="查看大图">{$vo.title}</a></span> <span class="rollimg"></span> </li>
+      </volist>
+  </ul>
+  <p>{$page}</p>
+	</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

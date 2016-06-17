@@ -1,0 +1,103 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>发货管理 </h1></div>
+
+	<form action="__URL__/fahuo" method="post" name="form3" id="form3">
+
+	<table width="100%" class="tab3" border="0" cellpadding="0" cellspacing="1" bgcolor="#b9c8d0">
+		<tr>
+			<td width="100%" class="tabletd">
+
+					<div class="fLeft"><span id="key"> 保单中心查询：<input type="text" name="shop_name" title="保单中心查询">
+	<select name="is_fahuo">
+		<option value="0">全部</option>
+		<option value="1">未发货</option>
+		<option value="2">已发货</option>
+	</select>
+  <input type="submit" name="Submit" value="查 询"  class="btn1"/>
+</span></div>
+					<div  id="searchM" class=" none search cBoth" ></div>
+				 </td>
+		</tr>
+	</table>
+</form>
+
+
+<form action="__URL__/fahuoSave" method="post" name="form3" id="form3">
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="0" id="tb1">
+
+<tr align="center">
+	<th></th>
+
+	<th nowrap >会员编号</th>
+	<th nowrap >会员名称</th>
+	<th nowrap >会员等级</th>
+
+	<th nowrap >联系点话</th>
+	<th nowrap >开通时间</th>
+	<th nowrap >服务中心</th>
+	<th nowrap >推荐人</th>
+	<th nowrap >接点人</th>
+	<th nowrap >发货金额</th>
+	<th nowrap >发货时间</th>
+	<th nowrap >发货状态</th>
+	<th nowrap >操作</th>
+	</tr>
+<volist name="list" id="vo">
+<tr align="center">
+	<td><input type="checkbox" name="tabledb[]" value="{$vo['id']}" class="btn2" /></td>
+	<td>{$vo['user_id']}</td>
+	<td nowrap >{$vo['user_name']}</td>
+
+	<td>{$u_level[$vo['u_level']-1]}</td>
+	<td nowrap >{$vo.user_tel}</td>
+
+	<td nowrap >{$vo.pdt|date='Y-m-d H:i:s',###}</td>
+	<td nowrap >{$vo.shop_name}</td>
+	<td nowrap >{$vo.re_name}</td>
+	<td>{$vo.father_name}</td>
+	<td>{$vo.cpzj}</td>
+	<td>
+		<eq name="vo.fahuo_time" value="0">
+			无
+			<else/>
+			{$vo.fahuo_time|date='Y-m-d H:i:s',###}
+		</eq>
+	</td>
+    <td><eq name="vo.is_fahuo" value="1">未发货</eq><eq name="vo.is_fahuo" value="2">已发货</eq>
+	</td>
+	<td>
+		<eq name="vo.is_fahuo" value="1">
+		<a href="__URL__/fahuoSave/id/{$vo.id}">点击确认发货</a>
+        </eq>
+
+		<eq name="vo.is_fahuo" value="2">
+			已发货
+		</eq>
+	</td>
+	</tr>
+</volist>
+
+</table>
+
+
+		<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+			<tr>
+				<td width="60%">
+					<input name="全选" type="button" class="button_text" id="全选" onclick="CheckAll(this.form)" value="全选" />	  &nbsp;&nbsp;
+					<input type="submit" name="action" value="确认发货" class="button_text" >&nbsp;&nbsp;
+					</td>
+			</tr>
+		</table>
+
+</form>
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr align="center">
+	<td>{$page}</td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

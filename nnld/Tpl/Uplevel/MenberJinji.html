@@ -1,0 +1,59 @@
+<include file="../Public/header" />
+<script language='javascript'>
+function CheckForm(){
+	if(confirm('您确定申请成为代理商吗？')){
+		return true;
+	}else{
+		return false;
+	}
+}
+</script>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>代理商申请 </h1></div>
+<form name="form1" method="post" action="__URL__/MenberJinjiConfirm" onSubmit="return CheckForm();">
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="0" id="tb1">
+  <tr>
+    <td align="right" width="20%">会员编号：</td>
+    <td>{$frs['user_id']}<input name="UserID" type="hidden"  value="{$frs['user_id']}"/></td>
+  </tr>
+  <tr>
+    <td align="right">当前等级：</td>
+    <td>{$level[$frs['u_level']]}</td>
+  </tr>
+  <tr>
+    <td align="right">申请状态：</td>
+    <td>
+    <neq name="frs.u_level" value="1">
+      <span class="hong"> 您已是代理商。</span>
+      <else/>
+      <gt name="frs.dl_rdt" value="0"><span style="color:#f00">审核中……</span><else/>未申请</gt>
+    </neq>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right">申请时间：</td>
+    <td>
+	<lt name="frs['u_level']" value="2" >
+    <gt name="frs.dl_rdt" value="0">
+      {$frs.dl_rdt|date='Y-m-d H:i:s',###}
+      <else/>                           
+    </gt>
+    <else />
+    
+    </lt>
+    </td>
+  </tr>
+  <eq name="frs.u_level" value="1">
+    <eq name="frs.dl_rdt" value="0">
+      <tr>
+        <td align="right"></td>
+        <td><input type="submit" value="提交申请"></td>
+      </tr>
+    </eq>
+  </eq>
+</table>
+</form>
+</div>
+</body>
+</html>

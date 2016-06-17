@@ -1,0 +1,44 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>代理商审核</h1></div>
+<form name="form1" method="post" action="__URL__/adminMenberJinjiConfirmC" onSubmit="return CheckForm();">
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+  <thead>
+    <tr align="center">
+        <th></th>
+        <th><span>会员编号</span></th>
+        <th><span>姓名</span></th>
+        <th><span>申请时间</span></th>
+        <th><span>开通时间</span></th>
+        </tr>
+    </thead>
+    <volist name="list" id="vo">
+    <tr class="content_td lz" align="center">
+        <td><input type="checkbox" name="tabledb[]" value="{$vo['id']}" class="btn2" /></td>
+        <td>{$vo['user_id']}</td>
+        <td>{$vo['nickname']}</td>
+        <td>{$vo.dl_rdt|date='Y-m-d H:i:s',###}</td>
+        <td><eq name="vo.dl_pdt" value="0">未开通<else/>{$vo.dl_pdt|date='Y-m-d H:i:s',###}</eq></td>
+        </tr>
+    </volist>
+</table>
+
+
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+    <tr>
+      <td width="60%">
+        <input name="全选" type="button" class="button_text" id="全选" onclick="CheckAll(this.form)" value="全选" />    &nbsp;&nbsp;
+        <input type="submit" name="action" value="确认" class="button_text" onclick="{if(confirm('确定要通过该申请吗?')){return true;}return false;}">&nbsp;&nbsp;
+        <input type="submit" name="action" value="删除" class="button_text" onclick="{if(confirm('确定要拒绝该申请吗?')){return true;}return false;}">&nbsp;&nbsp;
+      </td>
+    </tr>
+</table>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+    <tr>
+        <td>{$page}</td>
+    </tr>
+</table>
+</form>
+</div>
+</body>
+</html>

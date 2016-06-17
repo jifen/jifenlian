@@ -1,0 +1,36 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>会员晋级后台管理</h1></div>
+<form name="form1" method="post" action="__URL__/adminMenberJinjiConfirmCs" onSubmit="return CheckForm();">
+<table width="100%" class="tab3" border="0" cellpadding="1" cellspacing="1" id="tb1" >
+       <tr class="content_td lz" align="center">
+        <td>会员编号:&nbsp;&nbsp;{$user.user_id}</td>
+        </tr>
+        <input type="hidden" name="id" value="{$user.id}">
+    <tr class="content_td lz" align="center">
+        <td>当前级别:&nbsp;&nbsp;{$u_level[$user['u_level']-1]}</td>
+    </tr>
+
+    <tr class="content_td lz" align="center">
+        <td>
+            <select name="u_level" style="width: 130px;">
+               <volist name="u_level" id="v">
+                <option value="{$key+1}">{$v}</option>
+               </volist>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+<td class="content_td lz" align="center"><input type="submit" name="action" value="确认" class="button_text" onclick="{if(confirm('确定要给该会员升级吗?')){return true;}return false;}"></td>
+    </tr>
+
+
+</table>
+
+
+
+</form>
+</div>
+</body>
+</html>

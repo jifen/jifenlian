@@ -1,0 +1,118 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>升级审核管理 </h1></div>
+<form name="form3" method="post" action="__URL__/adminAgentsAC">
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+	<thead>
+    <tr class="content_td" align="center">
+        <th nowrap></th>
+        <th nowrap><span>会员编号</span></th>
+        <th nowrap><span>会员名</span></th>
+        <th nowrap><span>申请级别</span></th>
+        <th nowrap><span>申请金额</span></th>
+        <th nowrap><span>申请时间</span></th>
+
+        <th nowrap><span>确认时间</span></th>
+      <!--  <th nowrap><span>代理级别</span></th>-->
+        <!--<th nowrap><span>代理区域</span></th>-->
+
+
+        <th nowrap><span>状态</span></th>
+        <th nowrap><span>旗下代理/客户</span></th>
+    </tr>
+    </thead>
+    <volist name="list" id="vo" key='k'>
+    <tr align="center">
+        <td><input type="checkbox" name="tabledb[]" value="{$vo['id']}" class="btn2" /></td>
+        <td>{$vo['user_id']}</td>
+        <td><span>{$vo['user_name']}</span>&nbsp;</td>
+
+        <td>
+
+
+            <if condition="($vo['u_level'] lt $vo['shengji'])">
+                <span class="STYLE1" style="font-size:16px; font-weight:bold;">
+                    {$levels[$vo['shengji']-1]}
+                </span>
+                <else/>
+                {$levels[$vo['shengji']-1]}
+            </if>
+        &nbsp;
+
+        </td>
+
+        <td><span>{$vo['company_name']}</span>&nbsp;</td>
+
+        <td>
+            <if condition="($vo['sheng_time'] neq 0)">
+              {$vo.sheng_time|date='Y-m-d H:i:s',###}
+             <else/>
+                无
+            </if>
+        &nbsp;</td>
+        
+        <td>
+            <if condition="($vo['shenghou_time'] neq 0)">
+                {$vo.shenghou_time|date='Y-m-d H:i:s',###}
+                <else/>
+                无
+            </if>
+        &nbsp;</td>
+      <!--  <td>{$Aname[$vo['shoplx']-1]}</td>-->
+        <!--<td>{$vo['shop_a']}</td>-->
+
+       <!-- <td><a href="__URL__/adminAgentsShow/Sid/{$vo['id']}/">点击查看</a></td>-->
+        <td><if condition="($vo['is_sheng'] eq 0)">  未确认</if><if condition="($vo['is_sheng'] eq 1)">已确认</if>&nbsp;</td>
+        <td><a href="__URL__/shopMenber/shopId/{$vo['id']}/">查看</a></td>
+    </tr>
+    </volist>
+</table>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+	<tr>
+    	<td>&nbsp;&nbsp;
+          <input name="全选" type="button" class="button_text" id="全选" onclick="CheckAll(this.form)" value="全选" />&nbsp;&nbsp;
+          <input type="submit" name="action" value="确认" class="button_text" onclick="{if(confirm('确定吗?')){return true;}return false;}">&nbsp;&nbsp;
+          <input type="submit" name="action" value="删除" class="button_text" onclick="{if(confirm('确定删除吗?')){return true;}return false;}">&nbsp;&nbsp;
+          <input name="button3" type="button" onclick="window.location.href='__URL__/financeDaoChu_BD/'" value="导出Excel表格" class="button_text" />
+         </td>
+    </tr>
+</table>
+</form>
+<table width="100%" class="tab3_bottom" border="0" cellpadding="0" cellspacing="1">
+	<tr>
+        <td>{$page}</td>
+    </tr>
+</table>
+<table width="600" align="center">
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+    <td align="center"><form method='post' action="__URL__/adminAgents/">搜索会员：<input type="text" name="UserID" title="帐号查询">
+
+        条件查询：
+        <select name="type" style="width: 130px;">
+            <option value="0">请选择</option>
+            <option value="1">会员编号</option>
+            <option value="2">会员姓名</option>
+
+        </select>
+
+        级别查询：
+        <select name="shengji" style="width: 130px;">
+            <option value="0">请选择</option>
+            <option value="2">金卡级别</option>
+            <option value="3">一星代理</option>
+            <option value="4">二星代理</option>
+            <option value="5">三星代理</option>
+
+        </select>
+
+    <input type="submit" name="Submit" value="查询"  class="button_text"/>
+    </form></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
+<script>new TableSorter("tb1");</script>

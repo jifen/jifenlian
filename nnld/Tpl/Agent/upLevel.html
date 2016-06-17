@@ -1,0 +1,311 @@
+<include file="../Public/header" />
+<load href="__PUBLIC__/Js/UserJs.js" />
+<script src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>追加签约 </h1></div>
+    <!--<div style="display: none;" class="c_p5"><div class="tips">首次申请互助，请填写申请备注。 </div></div> -->
+	<table width="100%" border="0" cellpadding="3" cellspacing="0">
+		<form name="form1" method='post' id="form1" action="__URL__/levelAc">
+		<tr>
+			<td width="25%" height="30" align="right">会员编号：</td>
+			<td width="75%">{$fck_rs['user_id']}</td>
+		</tr>
+
+
+
+			<tr>
+				<td width="25%" height="30" align="right">当前注册积分：</td>
+				<td  class="hong" width="75%">{$fck_rs['agent_cash']}</td>
+			</tr>
+
+			<tr>
+				<td width="25%" height="20" align="right">追加签约会员：</td>
+				<td  class="hong" width="75%"><input size="30" name="user_id" type="text"  value="" maxlength="20" onblur="javascript:yhServer(this.value);" />
+
+				<a id="msg_tips"></a>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td width="25%" height="30" align="right">追加签约金额：</td>
+				<td  class="hong" width="75%"><input size="30" name="moneys" type="text" value="" maxlength="20" /></td>
+			</tr>
+
+
+	<!--		<tr>
+				<td width="25%" height="30" align="right">当前B网级别：</td>
+				<td  class="hong" width="75%">{$fck_rss['u_level']} 级</td>
+			</tr>
+
+			<tr>
+				<td width="25%" height="30" align="right">上级领导编号：</td>
+				<td  class="hong" width="75%">{$lingdao.user_id} </td>
+			</tr>
+
+			<tr>
+				<td width="25%" height="30" align="right">上级领导电话：</td>
+				<td  class="hong" width="75%">{$lingdao.user_tel} </td>
+			</tr>
+
+    -->
+
+
+		<!--	<tr>
+
+				<td width="25%" height="30" align="right">
+					注册金额：</td>
+				<td class="hong" id="hongs">{$fck_rs['cpzj']}  元</td>
+
+			</tr>  -->
+
+
+
+
+
+		<!--	<tr>
+				   <td width="25%" height="30" align="right">
+					   升级费用：</td>
+				   <td class="hong" id="msg_tipsdd">
+
+					<eq name="fck_rs.u_level" value="5">
+
+                        您已经是董事级别
+					<else/>
+
+                     0元
+					</eq>
+
+				   </td>
+
+			</tr>
+
+<input type="hidden" id="msg_tipsds" name="moneys">
+<input type="hidden" id="msg_tis" name="total_money">
+<input type="hidden" id="old" name="before_money" value="{$fck_rs['cpzj']}">   -->
+
+			<tr>
+				<td height="30">&nbsp;</td>
+
+
+				<td><input type="submit" class="button_text" value="申 请" /></td>
+
+			</tr>
+
+	</table>
+
+<br/>
+<br/>
+<br/>
+<!--
+	<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" align="center" bgcolor="#b9c8d0">
+
+		<tr align="center" class="size14">
+			<th width="20%" nowrap height="25">产品名称</th>
+			<th width="20%" nowrap height="25">产品图片</th>
+			<th width="20%" nowrap>产品价格</th>
+			<th width="20%" nowrap>数量</th>
+			<th width="20%" nowrap>总金额</th>
+
+		</tr>
+
+		<volist name="plist" id="vo">
+			<tr align="center">
+				<td nowrap height="22"><input style="display:none;" type="checkbox" class="box" name="id[]" value="{$vo.id}" id="check{$vo.id}">{$vo.name}</td>
+				<td nowrap height="22"><img src="{$vo.img}" width="150" height="150"></td>
+				<td nowrap><a id="jiaqian{$vo.id}">{$vo.money}</a></td>
+				<td nowrap><input size="30" id="shu{$vo.id}" name="shuliang[]" type="text" onKeyUp="jia({$vo.id})"  value="0" size="6" maxlength="15" />
+				</td>
+				<td nowrap><input size="30" class="jais" id="he{$vo.id}" name="money[]" type="text" size="6" value="0" readonly /></td>
+			</tr>
+		</volist>
+
+	</table>
+	<table width="100%" class="tab3" border="0" cellpadding="0" cellspacing="1">
+
+		<tr>
+			<td width="20%" align="right"><span class="hong">* </span>收货人姓名：</td>
+			<td><input size="30" name="us_name" type="text" id="us_name" value="" maxlength="20" /></td>
+		</tr>
+		<tr>
+			<td align="right"><span class="hong">* </span>收货地址：</td>
+			<td><input size="30" name="us_address" type="text" id="us_address" value="" maxlength="100" /></td>
+		</tr>
+		<tr>
+			<td align="right"><span class="hong">* </span>收货人电话：</td>
+			<td><input size="30" name="us_tel" type="text" id="us_tel" value="" maxlength="20" /></td>
+		</tr>
+
+
+	</table>  -->
+
+
+
+<br/>
+<br/>
+	</form>
+
+
+	<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" bgcolor="#b9c8d0">
+		<thead>
+		<tr align="center">
+			<th><span>服务中心</span></th>
+			<th><span>会员编号</span></th>
+			<th><span>原注册金额</span></th>
+			<th><span>总注册金额</span></th>
+			<th><span>追加金额</span></th>
+			<th><span>追加时间</span></th>
+		</tr>
+		</thead>
+		<volist name="level" id="vo">
+			<tr align="center">
+				<td>{$vo['get_uid']|user_id}</td>
+				<td>{$vo['pay_uid']|user_id}</td>
+				<td>{$vo['before_money']}</td>
+				<td>{$vo['total_money']}</td>
+				<td>{$vo['money']}</td>
+				<td>{$vo['adt_time']|date='Y-m-d H:i:s',###}</td>
+			</tr>
+		</volist>
+	</table>
+
+     <div align="center">{$page}</div>
+
+	<br/>
+	<br/><br/>
+	<br/><br/>
+	<br/>
+
+</div>
+</body>
+</html>
+
+
+<script>
+	function jia(value){
+
+		var price = document.getElementById('jiaqian'+value).innerHTML;
+		var shu = document.getElementById('shu'+value).value;
+
+
+
+		if(isNaN(shu)){
+			alert("数量必须为数字");
+			document.getElementById('shu'+value).value=0;
+		}
+
+		if(isNaN(shu)){
+			alert("数量必须为数字");
+			document.getElementById('shu'+value).value=0;
+		}
+
+		if(shu==''){
+			alert("数量必须填写数字");
+			document.getElementById('he'+value).value=0;
+		}
+
+
+		var FirstChar=shu.substr(0,1);
+		if(FirstChar=="0")
+		{
+			alert('数量不能为0开头,请填写真实的数量');
+			document.getElementById('shu'+value).value=0;
+			document.getElementById('check'+value).checked=false;
+			document.getElementById('he'+value).value=0;
+		}else{
+
+			var vald = price * shu;
+			if(vald >0){
+
+				document.getElementById('he'+value).value=vald;
+				document.getElementById('check'+value).checked=true;
+			}else{
+
+				document.getElementById('check'+value).checked=false;
+				document.getElementById('msg_tipsdd').innerHTML=0+"元";
+				document.getElementById('msg_tipsds').value=0;
+			}
+		}
+
+		gansi()
+
+	}
+
+	function gansi(){
+
+
+
+		var str=document.getElementsByClassName("box");
+
+		var objarray=str.length;
+		var chestr="";
+		for (i=0;i<objarray;i++)
+		{
+			if(str[i].checked == true)
+			{
+				chestr+=str[i].value+",";
+
+
+			}
+		}
+
+		var result=chestr.split(",");
+		var sum = '';
+		for(var i=0;i<result.length;i++){
+
+
+			var ad  = document.getElementById("he"+result[i]).value;
+
+			sum+=ad+",";
+
+			chuan(sum);
+
+		}
+
+	}
+
+
+	function chuan(sum){
+		var result=sum.split(",");
+		var sum1 = 0;
+
+		var old = document.getElementById('old').value;
+
+		for(var i=0;i<result.length;i++) {
+			if(result[i]){
+				sum1 = parseFloat(sum1)+ parseFloat(result[i]);
+			}
+		}
+		document.getElementById('msg_tipsdd').innerHTML=sum1+"元";
+		document.getElementById('msg_tipsds').value=sum1;
+		var sum2 = parseFloat(sum1)+parseFloat(old);
+		document.getElementById('hongs').innerHTML=sum2;
+		document.getElementById('msg_tis').value=sum2;
+	}
+
+</script>
+
+
+<script language="javascript">
+	function Selev(o){
+
+		if(o==1){document.getElementById('Selev').style.display = '';}
+		if(o==2||o==3||o==4){document.getElementById('Selev').style.display = 'none';}
+	}
+	Selev(document.getElementById('select').value);
+	new TableSorter("tb1");
+
+	function yhServer(user_id){
+
+		$.get("__APP__/Fck/check_CCuser/user_id/"+user_id,{},function(result){
+			var data=eval('('+result+')');
+			document.getElementById("msg_tips").innerHTML=data.info;
+
+		});
+	}
+
+</script>
+
+
+
+

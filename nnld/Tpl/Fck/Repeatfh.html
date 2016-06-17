@@ -1,0 +1,38 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>复投 </h1></div>
+    <table width="100%" border="0" cellspacing="10" cellpadding="0">
+   			 <tr>
+                <td width="18%" align="right">当前复投账户：</td>
+                <td width="82%" align="left">{$fck_rs['agent_xf']}</td>
+              </tr>
+              <tr>
+                <td width="18%" align="right">复投级别：</td>
+                <td width="82%" align="left">
+                
+               
+    		<form method='post' id="form1" name="form1" action="__URL__/RepeatfhAc"/>
+                  <volist name="s9" id="svo">
+                 <eq name="key" value="0">
+                <input name="u_level" type="radio" id="radio" value="{$key}" checked="checked"  />
+                <strong><span class="STYLE3">{$s10[$key]}({$s9[$key]}$)</span></strong>
+                <else/>
+                <input name="u_level" type="radio" id="radio" value="{$key}"/>
+                <strong><span class="STYLE3">{$s10[$key]}({$s9[$key]}$)</span></strong>
+                </eq>
+            	</volist>
+           
+            </td>
+              </tr>
+			  <tr>
+                <td width="18%" align="right"></td>
+                <td width="82%" align="left"><input type="submit" value="确定复投" class="button_text">
+            &nbsp;</td>
+              </tr>
+               </form>
+             
+              
+            </table>
+</div>
+</body>
+</html>

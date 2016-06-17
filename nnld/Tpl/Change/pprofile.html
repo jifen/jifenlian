@@ -1,0 +1,130 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+<div class="accounttitle"><h1>账户查询 </h1></div>
+    <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr>
+                <td width="18%" align="right">会员名称：</td>
+                <td width="82%" align="left">{$rs['user_id']}</td>
+              </tr>
+      <!--  <tr>
+            <td width="18%" align="right">签约金额：</td>
+            <td width="82%" align="left">{$rs['cpzj']}</td>
+        </tr>  -->
+			  <tr>
+                <td width="18%" align="right">推荐人数：</td>
+                <td width="82%" align="left">{$rs['re_nums']}人</td>
+              </tr>
+              <tr>
+                <td align="right">会员类型：</td>
+                <td align="left">{$mycg}</td>
+              </tr>
+
+              <tr>
+                 <td align="right">奖励积分：</td>
+                 <td align="left">{$rs['agent_use']}</td>
+              </tr>
+
+              <tr>
+                <td align="right">注册积分：</td>
+                <td align="left">{$rs['agent_cash']}</td>
+             </tr>
+
+
+
+
+      <!--      <tr>
+            <td align="right"> 消费积分：</td>
+            <td align="left">{$rs['agent_xf']}</td>
+        </tr>
+        <tr>
+            <td align="right"> 活跃积分：</td>
+            <td align="left">{$rs['agent_cf']}</td>
+        </tr>
+        <tr>
+            <td align="right"> 消费基金：</td>
+            <td align="left">{$rs['agent_gp']}</td>
+        </tr>  -->
+
+
+        <tr>
+            <td align="right"> 可用vap积分：</td>
+            <td align="left">{$rs['agent_gc']}</td>
+        </tr>
+
+
+     <!--   <tr>
+            <td align="right"> 可用vap积分：</td>
+            <td align="left">{$rs['vap_xiaofei']}</td>
+        </tr>  -->
+
+        <tr>
+            <td align="right"> 冻结vap积分：</td>
+            <td align="left">{$rs['vap_total']}</td>
+        </tr>
+
+        <!-- <tr>
+             <td align="right"> 爱心基金：</td>
+             <td align="left">{$rs['agent_kt']}</td>
+         </tr>
+             <tr>
+              <td align="right"> 签约总业绩：</td>
+              <td align="left">{$rs['team_yj']}</td>
+          </tr>
+
+          <tr>
+              <td align="right">股票：</td>
+              <td align="left">{$rs['agent_gp']}</td>
+          </tr>
+             <tr>
+                 <td align="right">B网的级别：</td>
+                 <td align="left">
+                    <eq name="rss.u_level" value="" >
+                         无
+                        <else/>
+                        {$rss.u_level}级别
+                    </eq>
+                 </td>
+                </tr>
+          <tr>
+              <td align="right">B网奖励币：</td>
+              <td align="left">{$rs['agent_cf']}</td>
+          </tr>
+
+                <tr>
+                  <td align="right">B网升级币：</td>
+                  <td align="left">{$rs['agent_cash']}</td>
+                </tr>
+
+  -->
+              <!--<tr>
+                <td align="right">电子积分账户：</td>
+                <td align="left">{$rs['agent_cash']}</td>
+              </tr>
+              <tr>
+                <td align="right">现金账户：</td>
+                <td align="left">{$rs['agent_cf']}</td>
+              </tr>-->
+              <!-- <tr>
+                <td align="right">开通积分余额：</td>
+                <td align="left">{$rs['agent_kt']}</td>
+              </tr>
+
+              <tr style="display:none">
+                <td align="right">股权兑换积分：</td>
+                <td align="left">{$rs['agent_gp']}</td>
+              </tr>
+              <tr style="display:none">
+                <td align="right">持股数量：</td>
+                <td align="left">{$rs['agent_gp']}</td>
+              </tr>
+              <gt name="qk" value="0">
+              <tr style="display:none;">
+                <td align="right">当前欠款：</td>
+                <td align="left">{$qk}</td>
+              </tr>  -->
+              </gt>
+              
+            </table>
+</div>
+</body>
+</html>

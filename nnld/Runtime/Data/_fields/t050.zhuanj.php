@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'in_uid', 2 => 'out_uid', 3 => 'in_userid', 4 => 'out_userid', 5 => 'epoint', 6 => 'rdt', 7 => 'sm', 8 => 'type', 9 => 'is_del', '_autoinc' => true, '_pk' => 'id', ); ?>

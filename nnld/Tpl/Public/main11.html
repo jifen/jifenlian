@@ -1,0 +1,172 @@
+<include file="../Public/header" />
+
+
+<!--<div class="gongggtiy">公告：{$top_new['title']}</div>-->
+<!-- 				left -->
+<div class="ncenter_box0" >
+<!--<div class="ntr1_left">
+<table class="ccdd" cellspacing=0 cellpadding=0 border=0>
+        <tbody>
+        <tr>
+          <td align=right height=20>会员编号:</td>
+          <td align=left><span>{$fck_rs['user_id']}</span></td></tr>
+        <tr>
+          <td align=right height=20>会员类型:</td>
+          <td align=left><span>{$u_level} </span></td></tr>
+        <tr>
+          <td align=right height=20>总奖励:</td>
+          <td align=left><span>{$fck_rs['zjj']}</span></td></tr>
+        <tr>
+          <td align=right height=20>剩余奖励:</td>
+          <td align=left><span>{$fck_rs['agent_use']}</span></td>
+        </tr>
+
+          <td align=right height=20>邮件提醒:</td>
+          <td align=left>
+          <gt name="{info_count}" value='0'>
+          <img src="__PUBLIC__/Images/mail_on.gif" />
+          <else/>
+          <img src="__PUBLIC__/Images/mail_off.jpg" />
+          </gt>
+          <a href="__APP__/Msg/inmsg">({$info_count})查看>></a></td></tr>
+        <tr>
+        <td colspan="2" align=center height=20>[ <a href="/A085/index.php/Public/LogOut/" onClick="{if(confirm('确定安全退出吗?')){this.document.selform.submit();return true;}return false;}" target="_top">安全退出</a> ]</td>
+          </tr>
+    </tbody></table>
+
+
+</div>-->
+    <div class="ntr1_right">
+        <!-- js滚动 -->
+<div style="width:1000px; height:265px; display:inline; float:left; margin-left:0px;">
+<div align="center">
+<script type="text/javascript">
+var swf_width=1000
+var swf_height=265
+var files='{$all_img}';
+var links='';
+var texts='';
+
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase=" http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+document.write('<param name="movie" value="__PUBLIC__/Swf/bcastr.swf"><param name="quality" value="high">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'">');
+document.write('<embed src="__PUBLIC__/Swf/bcastr.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'& menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage=" http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
+//-->
+</script>
+</div>
+</div>
+<!-- 结束 js滚动 -->
+
+    </div>
+
+</div>
+<div class="daomobre"></div>
+<div class="ncenter_box1">
+
+<!--<div class="img-manage">
+    <ul>
+      <li><a href="__APP__/Bonus/cody/c_id/1"><img src="__PUBLIC__/Images/xioug.jpg" alt="" border="0"/>奖励明细</a></li>
+      <li><a href="__APP__/Reg/users"><img src="__PUBLIC__/Images/jiangj.jpg" alt="" border="0"/> 会员注册</a></li>
+      <li><a href="__APP__/Change/cody/c_id/3"><img src="__PUBLIC__/Images/hueiuan.jpg" alt="" border="0"/>账户查询</a></li>
+      <li><a href="__APP__/Change/cody/c_id/1"><img src="__PUBLIC__/Images/tuanj.jpg" alt="" border="0"/> 账户修改</a></li>
+      <li><a href="__APP__/News/News"><img src="__PUBLIC__/Images/zaixn.jpg" alt="" border="0"/> 新闻中心</a></li>
+      <li><a href="__APP__/Tree/cody/c_id/6"><img src="__PUBLIC__/Images/tixina.jpg" alt="" border="0"/> 推荐关系</a></li>
+
+    </ul>
+    <div class="clear"></div>
+  </div>-->
+
+<div id="demo33" class="gd_iii" style="margin-bottom:25px;">
+              <table cellpadding="0" border="0" cellspace="0">
+                <tbody>
+                  <tr>
+                    <td id="demo11" valign="top"><table cellspacing="0" cellpadding="4" width="970" height="149" border="0" id="tupian">
+                        <tbody>
+                          <tr>
+
+
+                            <volist name="products" id="pl">
+                                <td align="middle">
+
+                                  <if condition="($pl['type'] eq 1)">
+                                    <a href="__APP__/Gouwu/cody/c_id/3" class="all_image">
+                                   </if>
+                                  <if condition="($pl['type'] eq 2)">
+                                    <a href="__APP__/Gouwu1/cody/c_id/3" class="all_image">
+                                   </if>
+
+                                    <img src="{$pl.img}" width="242" height="120" alt="{$pl.name}">
+                                    <p class="t_1"><span>{$pl.name}</span></p>
+                                    </a>
+                                </td>
+                            </volist>
+
+
+
+                          </tr>
+                        </tbody>
+                      </table></td>
+                    <td id="demo22" valign="top"><table cellspacing="0" cellpadding="4" width="970" height="149" border="0" id="tupian">
+                        <tbody>
+                          <tr></tr>
+                        </tbody>
+                      </table></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <script src="__PUBLIC__/Js/a2.js" type="text/javascript"></script>
+
+
+</div>
+
+
+
+
+<div class="ncenter_box2">
+<div class="ntr1_left2">
+<div class="mem">
+
+            <h3>
+<!--          <p style=" line-height:10px; height:10px;">&nbsp;</p>-->
+            <p>代理编号： <span style="color:#F00">{$fck_rs['user_id']}</span></p><p>
+            </p><p>代理等级：<span>{$u_level}</span></p>
+            <p>&nbsp;奖&nbsp;金&nbsp;积分： <span style="color:#F00">{$fck_rs['agent_use']}</span></p>
+            <p>&nbsp;注&nbsp;册&nbsp;积分： <span style="color:#F00">{$fck_rs['agent_cash']}</span></p>
+            <p>&nbsp;复&nbsp;消&nbsp;积分： <span style="color:#F00">{$fck_rs['agent_xf']}</span></p>
+            <!-- <p>&nbsp;购&nbsp;物&nbsp;积分： <span style="color:#F00">0.00</span></p>
+            <p>重复消费： <span style="color:#F00">0.00</span></p> -->
+ </h3>
+ <div class="fovxbre">
+
+       <div class="sanges">
+       <table width="100%;">
+       <tbody><tr>
+       <td width="33%"><a href="__APP__/Msg/inmsg/"><input class="butkfdd" type="button" value="收件箱({$info_count})"></a></td>
+         <td><a href="__APP__/Change/cody/c_id/2"><input class="butkfdd" type="button" value="修改密码"></a></td>
+          <td><a href="__APP__/Change/cody/c_id/3"><input class="butkfdd" type="button" value="账户查询"></a></td>
+       </tr>
+
+       </tbody></table>
+       </div>
+       </div>
+
+       </div>
+</div>
+<div class="ntr1_rigkj2">
+ <div class="miandgengd"><a href="__APP__/News/News/">更多...</a></div>
+<div class="bar_cont">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <volist name='f_list' id='vo'>
+              <tr>
+                <td style="border-bottom:1px dotted #ccc!important;">&nbsp;&nbsp;<img src="__PUBLIC__/Images/li.gif">&nbsp;&nbsp;[<font color="#FF0000">新闻公告</font>]&nbsp;&nbsp;<a href="__APP__/News/News_show/NewID/{$vo.id}">{$vo['title']}</a>&nbsp;&nbsp;<font color='#999999' style="float:right;">[{$vo.create_time|date='Y-m-d',###}]</font></td>
+              </tr>
+              </volist>
+            </table>
+    </div>
+
+</div>
+
+</div>
+</body></html>

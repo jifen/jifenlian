@@ -1,0 +1,93 @@
+#menu_all {height:35px;  float:left; margin-top:153px; margin-left:0px; }
+#jsddm li {
+	float: left;
+	list-style: none;
+		width:80px;
+		margin:0 5px;
+		padding-top:2px;
+	font: 12px Tahoma, Arial;
+}
+
+#jsddm li a {
+	display:block; 
+	text-decoration: none;
+	width: 100px;
+	color: #fff;
+	text-align:center;
+	line-height:45px;
+	
+	font-size: 14px;
+	cursor:default;
+	height:45px;  z-index:999;
+	
+}
+#jsddm li a:hover {
+	    background-color: rgba(0,0,0,0.35);
+    transition: .3s;
+color: #fff;
+	height:45px;
+	cursor:pointer; z-index:999;
+
+}
+#jsddm li a {
+	display:block; 
+	text-decoration: none;
+	width: 100px;
+	color: #fff;
+	text-align:center;
+	line-height:45px;
+	
+	font-size: 14px;
+	cursor:default;
+	height:45px;  z-index:999;
+	
+}
+#jsddm li a:hover {
+	    background-color: rgba(0,0,0,0.35);
+    transition: .3s;
+color: #fff;
+	height:45px;
+	cursor:pointer; z-index:999;
+
+}
+#jsddm li ul {
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+	width:120px;
+background: rgba(0, 0, 0, 0.85);
+background-color: #000\9;
+border: 1px solid #050505;
+border-top: 0;
+padding-top: 5px;
+box-shadow: 0 1px 10px rgba(34, 34, 34, 0.94);
+z-index:1;
+	
+}
+#jsddm li ul li {
+	float: none;
+	display: inline; 
+	margin:0;
+	padding:0;
+	line-height:25px;
+	text-indent:15px;
+	height:25px;  z-index:999;
+
+
+}
+#jsddm li ul li a {
+	width: auto;
+	height:30px;
+	text-align:left;
+	font-size: 12px;
+	padding: 0 10px 0 10px;
+	font-weight:normal;
+	color: #dadada;
+	border:0;  z-index:999; line-height:30px;
+}
+#jsddm li ul li a:hover {
+	background: #1C8CFF;
+color: #FFF;
+	height:30px;
+	border:0;  z-index:999;
+}

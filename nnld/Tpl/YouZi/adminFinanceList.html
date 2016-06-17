@@ -1,0 +1,43 @@
+<include file="../Public/header" />
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+.STYLE2 {color: #00CC99}
+-->
+</style>
+<div class="ncenter_box">
+<div class="accounttitle"><h1>收入列表&nbsp;&nbsp;[<a href='javascript:history.back()'>返回列表</a>] </h1></div>
+<table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="1" id="tb1" bgcolor="#b9c8d0">
+<td colspan="7" class="tabletd">
+<form method="post" action="__URL__/adminFinanceList">
+<div class="fLeft">
+	<span id="key">查询：
+	<input type="text" name="UserID" title="帐号查询">
+      <input type="hidden" name="eDate" value="{$eDate}" />
+      <input type="hidden" name="sDate" value="{$sDate}" />
+	<input type="submit" name="Submit" value="查 询" class="button_text" />
+	</span></div>
+<div  id="searchM" class=" none search cBoth" ></div>
+</form></td>
+</tr>
+<tr align="center">
+    <th nowrap><span>会员编号</span></th>
+    <th nowrap><span>收入金额</span></th>
+  <th nowrap><span>收入类型</span></th>
+  <th nowrap><span>收入时间</span></th>
+</tr>
+<volist name="list" id="vo">
+<tr align="center">
+	<td data-th="会员编号">{$vo['user_id']}</td>
+	<td data-th="收入金额">{$vo['in_money']}</td>
+	<td data-th="收入类型">{$vo['in_bz']}</td>
+	<td data-th="收入时间">{$vo.in_time|date='Y-m-d H:i:s',###}</td>
+</tr>
+</volist>
+<tr align="center">
+	<td colspan="7">{$page}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

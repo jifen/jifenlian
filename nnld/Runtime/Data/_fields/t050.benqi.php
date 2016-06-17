@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'id', 1 => 'uid', 2 => 'shop_id', 3 => 'cpzj', 4 => 'money', 5 => 'adt', 6 => 'is_re_nums', 7 => 'is_benqi', 8 => 'is_yeji', 9 => 'is_team_yj', '_autoinc' => true, '_pk' => 'id', ); ?>

@@ -1,0 +1,51 @@
+<include file="../Public/header" />
+<div class="ncenter_box">
+    <div class="accounttitle"><h1>IP白名单管理 </h1></div>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+        <!--
+
+        <tr align="left">
+            <td><input type="button" name="action" value="管理产品分类" onClick="window.location='__URL__/cptype_index/'" class="btn1"></td>
+        </tr>
+
+        -->
+
+    </table>
+    <table width="100%" class="tab3" border="0" cellpadding="3" cellspacing="0" id="tb1">
+        <form action="__URL__/Ip" method="post" name="form3" id="form3">
+            <tr align="center">
+                <th nowrap >序号</th>
+                <th nowrap >IP白名单</th>
+                <th nowrap > 添加时间</th>
+                <th nowrap >操作</th>
+            </tr>
+            <volist name="list" id="v">
+                <tr align="center">
+                    <td nowrap >{$key}</td>
+                    <td nowrap >{$v.ip_address}</td>
+                    <td nowrap >{$v.pdt|date='Y-m-d H:i:s',###}</td>
+                    <td nowrap ><a href="__URL__/ip_del/id/{$v.id}">删除</a></td>
+                </tr>
+            </volist>
+
+        </form>
+    </table>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr align="center">
+            <td>{$page}</td>
+        </tr>
+    </table>
+    <table width="100%" align="center" style="padding-top:10px; padding-bottom:10px;">
+        <tr>
+            <td align="center">
+                <form method='post' action="__URL__/Ipadd/">IP地址：
+                    <input name="ip_address" style="width: 200px; height: 30px;" type="text" id="ip"></span>
+                    <input type="submit" name="Submit" value="添加" class="btn1"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

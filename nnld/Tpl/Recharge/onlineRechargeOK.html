@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body onLoad="document.E_FORM.submit();">
+<!-- <body> -->
+正在跳转 ...
+<!--<form name="dinpayForm" method="post" action="https://pay.dinpay.com//gateway?input_charset=UTF-8">-->
+<form action="http://www.fudass.com/phpPay/onlineRechargeSend.php" method="post" name="E_FORM">
+  <table align="center">
+    
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="MerNo" value="<?=$MerNo?>"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="BillNo" value="<?=$BillNo?>"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="Amount" value="<?=$Amount?>"></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="ReturnURL" value="<?=$ReturnURL?>" ></td>
+    </tr>
+    
+	 <tr>
+      <td></td>
+      <td><input type="hidden" name="AdviceURL" value="<?=$AdviceURL?>" ></td>
+    </tr>
+	 <tr>
+      <td></td>
+      <td><input type="hidden" name="orderTime" value="<?=$orderTime?>"></td>
+    </tr>
+    
+	 <tr>
+      <td></td>
+      <td><input type="hidden" name="defaultBankNumber" value="<?=$defaultBankNumber?>"></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="SignInfo" value="<?=$SignInfo?>"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="Remark" value="<?=$Remark?>"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="hidden" name="products" value="<?=$products?>"></td>
+    </tr>
+  </table>
+  <p align="center">
+    <input type="submit" name="b1" value="Payment" style="display:none;">
+  </p>
+</form>
+</body>
+</html>
